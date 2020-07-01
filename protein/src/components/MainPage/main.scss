@@ -1,19 +1,170 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 .main-page {
-  .header {
-    h1 {
-      font-family: "Montserrat", sans-serif;
-      font-style: normal;
-      font-weight: 800;
-      font-size: 48px;
-      line-height: 59px;
+  height: 100%;
+  padding: 20px;
+  padding-left: 100px;
 
-      float: left;
-      color: #6af15e;
+  .main {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 200px;
+
+    .products-block {
+      width: 1414px;
+      height: 503px;
+      background-repeat: no-repeat; 
+
+      .products-padding {
+          padding: 100px;
+          padding-left: 250px;
+
+        .product-block {
+          width: 300px;
+          height: 290px;
+          float: left;
+
+          img {
+            width: 250px;
+            height: 250px;
+            display: block;
+            margin: auto;
+          }
+
+          button {
+            width: 120px;
+            height: 30px;
+            display: block;
+
+            margin: auto;
+            border: 0;
+            font-family: "Montserrat", sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+            color: #50ce46;
+
+            background: #ffffff;
+            border-radius: 100px;
+          }
+        }
+      }
+    }
+  }
+
+  .header {
+    height: 800px;
+    .text-block {
+      margin-top: 130px;
+      width: 500px;
+      h2 {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.7em;
+        line-height: 40px;
+        text-align: justify;
+
+        color: #50ce46;
+      }
+
+      button {
+        width: 286px;
+        height: 60px;
+
+        border: 0;
+        display: block;
+        margin-top: 20px;
+        background: none;
+
+        border: 2px solid #50ce46;
+        box-sizing: border-box;
+        border-radius: 10px;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+        outline: none;
+        color: #50ce46;
+
+        &:hover {
+          color: #33a12b;
+          border: 2px solid #33a12b;
+        }
+        &:active {
+          color: #50ce46;
+          border: 2px solid #50ce46;
+        }
+      }
+    }
+    .navbar-block {
+      width: 100%;
+      height: 100px;
+      ul {
+        position: absolute;
+        top: 22px;
+        right: 20px;
+        list-style-type: none;
+        width: 45%;
+        padding: 0;
+        overflow: hidden;
+        margin: 0;
+        li {
+          float: right;
+          a {
+            display: block;
+            color: white;
+            text-align: center;
+            font-size: 1.2em;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            padding: 15px 10px;
+            text-decoration: none;
+            &:hover {
+              color: #c8ffc3;
+            }
+          }
+        }
+      }
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 48px;
+        line-height: 59px;
+
+        float: left;
+        color: #6af15e;
+      }
+    }
+
+    .green-box {
+      position: absolute;
+      width: 800px;
+      z-index: -1;
+      height: 800px;
+      background-repeat: no-repeat;
+      right: 0;
+      top: 0;
+    }
+
+    .proteins {
+      width: 530px;
+      height: 400px;
+      position: absolute;
+      right: 110px;
+      top: 250px;
     }
 
     .pbadge {
+      margin-top: 15px;
+      margin-left: 20px;
       float: left;
       background: #6af15e;
       border-radius: 1000px;
