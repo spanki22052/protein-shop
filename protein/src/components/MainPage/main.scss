@@ -14,14 +14,62 @@
     flex-wrap: wrap;
     margin-top: 200px;
 
+    .reviews-block {
+      margin-top: 20px;
+      width: 60%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      flex-direction: row;
+
+      .review-block {
+        width: 250px;
+        height: 300px;
+
+        img {
+          width: 100px;
+          height: 100px;
+          display: block;
+          border-radius: 1000px;
+          object-fit: cover;
+          margin: auto;
+          border: 3px solid #6af15e;
+        }
+
+        h1 {
+          text-align: center;
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: 600;
+          font-size: 21px;
+          line-height: 26px;
+
+          color: #50ce46;
+        }
+
+        p {
+          text-align: justify;
+          margin: auto;
+          font-family: "Montserrat", sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 15px;
+          line-height: 22px;
+
+          color: #50ce46;
+        }
+      }
+    }
+
     .products-block {
       width: 1414px;
       height: 503px;
-      background-repeat: no-repeat; 
+      background-repeat: no-repeat;
 
       .products-padding {
-          padding: 100px;
-          padding-left: 250px;
+        padding: 100px;
+        padding-left: 250px;
 
         .product-block {
           width: 300px;
@@ -50,7 +98,19 @@
             color: #50ce46;
 
             background: #ffffff;
+            outline: none;
             border-radius: 100px;
+
+            &:hover {
+              color: #43b83a;
+
+              background: #f5fbf6;
+            }
+            &:active {
+              color: #65ca5e;
+
+              background: #fdfffe;
+            }
           }
         }
       }
