@@ -40,7 +40,9 @@ const MainPage = () => {
           <h2>
             Мы распологаем одной из лучших протеиновых продукций в Махачкале.
           </h2>
-          <button className="go-to-products"> Перейти к товарам </button>
+          <a href="/shop">
+            <button className="go-to-products"> Перейти к товарам </button>
+          </a>
         </div>
       </div>
 
@@ -109,7 +111,9 @@ const MainPage = () => {
               <img src="/svg/flexing-man.svg" alt="muscleman" />
               <div className="white-text-block">
                 <h1>Заказывайте протеины в {company}.ml</h1>
-                <button>Перейти в магазин</button>
+                <a href="/shop">
+                    <button>Перейти в магазин</button>
+                </a>
               </div>
             </div>
           </div>
