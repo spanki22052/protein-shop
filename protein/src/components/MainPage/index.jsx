@@ -40,7 +40,7 @@ const MainPage = () => {
           <h2>
             Мы распологаем одной из лучших протеиновых продукций в Махачкале.
           </h2>
-          <button> Перейти к товарам </button>
+          <button className="go-to-products"> Перейти к товарам </button>
         </div>
       </div>
 
