@@ -13,17 +13,6 @@ const MainPage = () => {
           <div className="pbadge">
             <p>качество</p>
           </div>
-          <ul>
-            <li>
-              <a href="/shop"> магазин </a>
-            </li>
-            <li>
-              <a href="/map"> мы на карте </a>
-            </li>
-            <li>
-              <a href="/contacts"> контакты </a>
-            </li>
-          </ul>
         </div>
 
         <img
