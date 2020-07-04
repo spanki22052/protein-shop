@@ -1,0 +1,45 @@
+.navbar-component {
+  width: 100%;
+
+  @media (max-width: 800px) {
+    .green-letters {
+      font-size: 30px !important;
+      width: 75px !important;
+      float: left;
+    }
+    .nav-link-bar {
+      color: #6af15e !important;
+    }
+  }
+  .green-letters {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 59px;
+    color: #6af15e;
+  }
+
+  .green-badge {
+    width: 100px;
+    height: 25px;
+
+    background: #83ff78;
+    border-radius: 1000px;
+
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 15px;
+
+    color: #ffffff;
+  }
+
+  .nav-link-bar {
+    color: #6af15e;
+    font-size: 1.2em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+  }
+}

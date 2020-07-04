@@ -8,12 +8,6 @@ const MainPage = () => {
   return (
     <div className="main-page">
       <div className="header">
-        <div className="navbar-block">
-          <h1>{company}</h1>
-          <div className="pbadge">
-            <p>качество</p>
-          </div>
-        </div>
 
         <img
           className="small-green-box"

@@ -2,6 +2,7 @@ import React from "react";
 import MainPage from "./MainPage";
 import ShopPage from "./ShopPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NavbarComponent from "./NavbarComponent";
 const firebase = require("firebase");
 
 var firebaseConfig = {
@@ -20,6 +21,7 @@ firebase.analytics();
 const ComponentsHolder = () => {
   return (
     <div className="components-holder">
+      <NavbarComponent />
       <Router>
         <Switch>
           <Route exact path="/" component={MainPage} />
