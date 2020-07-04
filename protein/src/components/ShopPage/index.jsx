@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./shop.scss";
+import { connect } from "react-redux";
 
 const firebase = require("firebase");
 
@@ -59,6 +60,23 @@ class ShopPage extends Component {
     });
   };
 
+  addNewProduct = (title, price) => {
+    var payload = {};
+
+    this.props.prods.hasOwnProperty(title) === false
+      ? (payload = {
+          title: title,
+          price: price,
+          amount: 1,
+        })
+      : (payload = {
+          title: title,
+          price: price,
+          amount: this.props.prods[title].amount + 1,
+        });
+    this.props.sendProduct(payload);
+  };
+
   render() {
     return (
       <div className="shop-page">
@@ -89,7 +107,13 @@ class ShopPage extends Component {
                       return (
                         <div key={index} className="product-block">
                           <img src={el.image} alt="productimage" />
-                          <button>Добавить в корзину</button>
+                          <button
+                            onClick={() =>
+                              this.addNewProduct(el.title, el.price)
+                            }
+                          >
+                            Добавить в корзину
+                          </button>
                           <h1>{el.title}</h1>
                           <h2>Цена: {el.price}</h2>
                         </div>
@@ -103,7 +127,13 @@ class ShopPage extends Component {
                       return (
                         <div key={index} className="product-block">
                           <img src={el.image} alt="productimage" />
-                          <button>Добавить в корзину</button>
+                          <button
+                            onClick={() =>
+                              this.addNewProduct(el.title, el.price)
+                            }
+                          >
+                            Добавить в корзину
+                          </button>
                           <h1>{el.title}</h1>
                           <h2>Цена: {el.price}</h2>
                         </div>
@@ -119,4 +149,16 @@ class ShopPage extends Component {
   }
 }
 
-export default ShopPage;
+export default connect(
+  (state) => ({
+    prods: state.addItem,
+  }),
+  (dispatch) => ({
+    sendProduct: (payload) => {
+      dispatch({
+        type: "ADD_PRODUCT",
+        payload,
+      });
+    },
+  })
+)(ShopPage);

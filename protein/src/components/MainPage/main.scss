@@ -242,6 +242,10 @@
       background-repeat: no-repeat;
       background-size: contain;
 
+      @media (min-width: 990px) and (max-width: 1300px) {
+        margin-top: 100px;
+      }
+
       @media (max-width: 990px) {
         height: 400px;
         display: block;
@@ -328,14 +332,18 @@
 
     @media (min-width: 990px) and (max-width: 1300px) {
       .text-block {
-        margin-top: 800px !important;
-        height: 500px;
+        margin-top: 750px !important;
+        height: 400px;
         width: 100% !important;
 
         h2 {
           width: 50% !important;
-          display: block !important;
+          min-width: 500px;
           margin: auto !important;
+        }
+
+        button {
+          float: left;
         }
 
         .go-to-products {
