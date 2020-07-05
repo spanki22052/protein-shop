@@ -2,6 +2,7 @@ import React from "react";
 import MainPage from "./MainPage";
 import ShopPage from "./ShopPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import CartPage from "./CartPage";
 import NavbarComponent from "./NavbarComponent";
 const firebase = require("firebase");
 
@@ -20,15 +21,16 @@ firebase.analytics();
 
 const ComponentsHolder = () => {
   return (
-    <div className="components-holder">
-      <NavbarComponent />
-      <Router>
+    <Router>
+      <div className="components-holder">
+          <NavbarComponent />
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route path="/shop" component={ShopPage} />
+          <Route path="/cart" component={CartPage} />
         </Switch>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 };
 

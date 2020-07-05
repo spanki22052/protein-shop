@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import returnItems from "./return_items";
-import addItem from "./add_item";
+import returnItems from "./addListItem";
+import addItem from "./addItem";
 
 export default combineReducers({
   addItem,

@@ -1,5 +1,6 @@
 import React from "react";
 import "./main.scss";
+import { Link } from "react-router-dom";
 
 const MainPage = () => {
   const company = "Dagestan";
@@ -8,7 +9,6 @@ const MainPage = () => {
   return (
     <div className="main-page">
       <div className="header">
-
         <img
           className="small-green-box"
           src="./svg/small-green-box.svg"
@@ -34,9 +34,9 @@ const MainPage = () => {
           <h2>
             Мы распологаем одной из лучших протеиновых продукций в Махачкале.
           </h2>
-          <a href="/shop">
+          <Link to="/shop">
             <button className="go-to-products"> Перейти к товарам </button>
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -105,9 +105,7 @@ const MainPage = () => {
               <img src="/svg/flexing-man.svg" alt="muscleman" />
               <div className="white-text-block">
                 <h1>Заказывайте протеины в {company}.ml</h1>
-                <a href="/shop">
-                    <button>Перейти в магазин</button>
-                </a>
+                <button>Перейти в магазин</button>
               </div>
             </div>
           </div>

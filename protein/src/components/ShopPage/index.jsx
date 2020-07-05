@@ -60,18 +60,20 @@ class ShopPage extends Component {
     });
   };
 
-  addNewProduct = (title, price) => {
+  addNewProduct = (title, price, image) => {
     var payload = {};
 
     this.props.prods.hasOwnProperty(title) === false
       ? (payload = {
           title: title,
           price: price,
+          image: image,
           amount: 1,
         })
       : (payload = {
           title: title,
           price: price,
+          image: image,
           amount: this.props.prods[title].amount + 1,
         });
     this.props.sendProduct(payload);
@@ -129,7 +131,7 @@ class ShopPage extends Component {
                           <img src={el.image} alt="productimage" />
                           <button
                             onClick={() =>
-                              this.addNewProduct(el.title, el.price)
+                              this.addNewProduct(el.title, el.price, el.image)
                             }
                           >
                             Добавить в корзину
