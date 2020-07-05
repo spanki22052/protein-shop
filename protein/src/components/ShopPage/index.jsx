@@ -62,7 +62,6 @@ class ShopPage extends Component {
 
   addNewProduct = (title, price, image) => {
     var payload = {};
-
     this.props.prods.hasOwnProperty(title) === false
       ? (payload = {
           title: title,
@@ -77,6 +76,8 @@ class ShopPage extends Component {
           amount: this.props.prods[title].amount + 1,
         });
     this.props.sendProduct(payload);
+    this.props.items.includes(title) === false &&
+      this.props.sendProductToList(title);
   };
 
   render() {
@@ -154,11 +155,18 @@ class ShopPage extends Component {
 export default connect(
   (state) => ({
     prods: state.addItem,
+    items: state.returnItems,
   }),
   (dispatch) => ({
     sendProduct: (payload) => {
       dispatch({
         type: "ADD_PRODUCT",
+        payload,
+      });
+    },
+    sendProductToList: (payload) => {
+      dispatch({
+        type: "ADD_ITEM",
         payload,
       });
     },

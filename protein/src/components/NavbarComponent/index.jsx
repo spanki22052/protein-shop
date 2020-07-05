@@ -9,11 +9,18 @@ import { Link } from "react-router-dom";
 
 const NavbarComponent = ({ prods }) => {
   var windowSize = window.innerWidth;
+  var currentLink = window.location.href.split("/");
 
-  const [color, setColor] = useState(windowSize >= 1000 ? "white" : "#6af15e");
+  const [color, setColor] = useState(
+    currentLink[currentLink.length - 1].length < 1
+      ? windowSize >= 1000
+        ? "white"
+        : "#6af15e"
+      : "#6af15e"
+  );
   const [bg, setBg] = useState(windowSize >= 1000 ? "none" : "light");
 
-  var margTop = windowSize >= 1000 ? "0" : "110px !important"
+  var margTop = windowSize >= 1000 ? "0" : "110px !important";
 
   const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -38,7 +45,7 @@ const NavbarComponent = ({ prods }) => {
               to="/"
               style={{ textDecoration: "none", color: "#6af15e" }}
               onClick={() => {
-                setColor("white");
+                setColor(windowSize <= 1000 ? "#6af15e" : "white");
                 setBg("none");
               }}
             >
@@ -65,7 +72,7 @@ const NavbarComponent = ({ prods }) => {
                   marginTop: margTop,
                 }}
                 onClick={() => {
-                  setColor("white");
+                  setColor(windowSize <= 1000 ? "#6af15e" : "white");
                   setBg("none");
                 }}
               >

@@ -8,8 +8,14 @@ export default function addItem(state = initialState, action) {
       whatToReturn[action.payload.title] = action.payload;
       whatToReturn.counter += 1;
       return whatToReturn;
-    case "GET_PRODUCT":
-      return state;
+    case "REMOVE_PRODUCT":
+      let newReturnState = { ...state };
+      delete newReturnState[action.payload];
+      return newReturnState;
+    case "MODIFY_COUNTER":
+      let newObj = { ...state };
+      newObj['counter'] = action.payload;
+      return newObj;
     default:
       return state;
   }
