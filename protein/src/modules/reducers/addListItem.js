@@ -8,6 +8,8 @@ export default function returnItems(state = initialState, action) {
       let newList = [...state];
       newList.splice(newList.indexOf(action.payload), 1);
       return newList;
+    case "EMPTY_ITEMS":
+      return [];
     default:
       return state;
   }

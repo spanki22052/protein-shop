@@ -4,8 +4,17 @@ import "./cart.scss";
 import { Link } from "react-router-dom";
 import { IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
+import PhoneEmailPopup from "./PhoneEmailPopup";
 
 class CartPage extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      showPopup: 'none'
+    }
+  }
+
   removeProduct = (title) => {
     let amountCounter =
       this.props.prods.counter - this.props.prods[title].amount;
@@ -13,9 +22,12 @@ class CartPage extends Component {
     this.props.removeItemFromList(title);
     this.props.removeItemFromObject(title);
   };
+
+
   render() {
     return (
       <div className="cart-page">
+        <PhoneEmailPopup displayPopup={this.state.showPopup} modifyPopup={(element) => this.setState({ showPopup: element })} />
         <div className="cart-page__padding">
           <div className="main-text">
             <h1>Корзина</h1>
@@ -38,9 +50,9 @@ class CartPage extends Component {
               </div>
             ) : (
               <div className="products-blocks">
-                {this.props.items.map((element) => {
+                {this.props.items.map((element, index) => {
                   return (
-                    <div className="product-block">
+                    <div key={index} className="product-block">
                       <div className="image-side">
                         <img
                           src={this.props.prods[element].image}
@@ -70,9 +82,10 @@ class CartPage extends Component {
                 })}
               </div>
             )}
-          </div><br />
+          </div>
+          <br />
           {this.props.prods.counter > 0 ? (
-            <button className="buy-product">Совершить заказ</button>
+            <button className="buy-product" onClick={() => this.setState({ showPopup: 'block' })}>Совершить заказ</button>
           ) : null}
         </div>
       </div>

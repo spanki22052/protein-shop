@@ -14,8 +14,10 @@ export default function addItem(state = initialState, action) {
       return newReturnState;
     case "MODIFY_COUNTER":
       let newObj = { ...state };
-      newObj['counter'] = action.payload;
+      newObj["counter"] = action.payload;
       return newObj;
+    case "EMPTY_PRODUCTS":
+      return { counter: 0 };
     default:
       return state;
   }

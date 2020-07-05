@@ -6,7 +6,6 @@
 
     @media (max-width: 600px) {
       padding: 10px !important;
-
     }
 
     .main-page {
@@ -21,10 +20,8 @@
       width: 100%;
       @media (min-width: 700px) and (max-width: 1024px) {
         .all-products {
-
           padding-left: 50px !important;
           width: 65% !important;
-
         }
       }
       @media (max-width: 700px) {
@@ -90,6 +87,14 @@
               display: block;
               margin: auto;
               color: #50ce46;
+
+              &:hover {
+                background: #f4fcf3;
+              }
+              
+              &:active {
+                background: #e3fbdd;
+              }
             }
 
             h1 {
