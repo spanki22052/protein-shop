@@ -10,6 +10,11 @@ class AdminPage extends Component {
       passwordInput: "",
     };
   }
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(async (_usr) => {
+      if (_usr) this.props.history.push("/adminpanel");
+    });
+  }
 
   authAsAdmin = (email, password) => {
     firebase
@@ -18,7 +23,7 @@ class AdminPage extends Component {
       .then(
         () => {
           this.props.history.push("/adminpanel");
-          console.log("you are in")
+          console.log("you are in");
         },
         (err) => {
           this.setState({ loginError: "Server error" });
@@ -48,7 +53,13 @@ class AdminPage extends Component {
               type="password"
             />
           </div>
-          <button onClick={() => this.authAsAdmin(this.state.emailInput, this.state.passwordInput)}>Отправить</button>
+          <button
+            onClick={() =>
+              this.authAsAdmin(this.state.emailInput, this.state.passwordInput)
+            }
+          >
+            Отправить
+          </button>
         </div>
       </div>
     );

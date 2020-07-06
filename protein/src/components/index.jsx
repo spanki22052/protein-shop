@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CartPage from "./CartPage";
 import NavbarComponent from "./NavbarComponent";
 import AdminPage from "./AdminPage";
+import AdminPanel from "./AdminPanel";
 const firebase = require("firebase");
 
 var firebaseConfig = {
@@ -24,12 +25,13 @@ const ComponentsHolder = () => {
   return (
     <Router>
       <div className="components-holder">
-          <NavbarComponent />
+        <NavbarComponent />
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route path="/shop" component={ShopPage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/admin" component={AdminPage} />
+          <Route path="/adminpanel" component={AdminPanel} />
         </Switch>
       </div>
     </Router>
