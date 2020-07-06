@@ -32,7 +32,6 @@ class AdminPanel extends Component {
         (await info.data()) !== undefined &&
           this.setState({
             categories: info.data().category,
-            currentProduct: info.data().category[0],
           });
       });
 
@@ -59,7 +58,11 @@ class AdminPanel extends Component {
   };
 
   sendProductsToDb = (product, products, currentProduct) => {
-    let newProducts = { ...products };
+    let newProducts = {};
+    for (var key in products) {
+      newProducts[key] = products[key];
+    }
+    console.log(newProducts);
     let newProductsList =
       products[currentProduct] !== undefined
         ? [...products[currentProduct], product]
@@ -73,14 +76,11 @@ class AdminPanel extends Component {
         products: newProducts,
       });
 
-      this.setState({ productPrice: "", productTitle: "", productUrl: "" });
+    this.setState({ productPrice: "", productTitle: "", productUrl: "" });
   };
-
-  changeFunc() {
-    var selectBox = document.getElementById("selectBox");
-    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-    this.setState({ currentProduct: selectedValue });
-  }
+  handleChange = (event) => {
+    this.setState({ value: event.target.value });
+  };
 
   render() {
     return (
@@ -130,13 +130,15 @@ class AdminPanel extends Component {
             <div className="panel-block">
               <div className="input-block">
                 <p>Выберите категорию:</p>
-                <select id="selectBox" onChange={() => this.changeFunc()}>
+                <select
+                  id="selectBox"
+                  onChange={(e) => {
+                    this.setState({ currentProduct: e.target.value });
+                  }}
+                  value={this.state.currentProduct}
+                >
                   {this.state.categories.map((element, index) => {
-                    return (
-                      <option onClick={() => console.log(element)} key={index}>
-                        {element}
-                      </option>
-                    );
+                    return <option key={index}>{element}</option>;
                   })}
                 </select>
               </div>
