@@ -73,7 +73,7 @@ const NavbarComponent = ({ prods }) => {
                 }}
                 onClick={() => {
                   setColor(windowSize <= 1000 ? "#6af15e" : "white");
-                  setBg("none");
+                  setBg(windowSize < 1000 ? "light" : 'none');
                 }}
               >
                 {" "}
@@ -95,7 +95,7 @@ const NavbarComponent = ({ prods }) => {
                 }}
                 onClick={() => {
                   setColor("#6af15e");
-                  setBg("light");
+                  setBg(windowSize < 1000 ? "light" : 'none');
                 }}
               >
                 {" "}
@@ -107,7 +107,7 @@ const NavbarComponent = ({ prods }) => {
               style={{ textDecoration: "none", marginLeft: "10px" }}
               onClick={() => {
                 setColor("#6af15e");
-                setBg("light");
+                  setBg(windowSize < 1000 ? "light" : 'none');
               }}
             >
               <IconButton aria-label="cart">

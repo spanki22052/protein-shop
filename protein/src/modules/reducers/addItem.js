@@ -1,4 +1,4 @@
-const initialState = { counter: 0 };
+var initialState = { counter: 0 };
 
 export default function addItem(state = initialState, action) {
   switch (action.type) {
@@ -17,7 +17,8 @@ export default function addItem(state = initialState, action) {
       newObj["counter"] = action.payload;
       return newObj;
     case "EMPTY_PRODUCTS":
-      return { counter: 0 };
+      let newOb = {counter: 0}
+      return newOb;
     default:
       return state;
   }

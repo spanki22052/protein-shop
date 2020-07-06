@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./popup.scss";
-import {connect } from 'react-redux'
+import { connect } from "react-redux";
+
+const firebase = require("firebase");
 
 class PhoneEmailPopup extends Component {
   constructor() {
@@ -10,6 +12,27 @@ class PhoneEmailPopup extends Component {
       emailInput: "",
     };
   }
+
+  sendDataToDB = (emailInput, numberInput) => {
+    emailInput.length > 12 &&
+      numberInput.length > 9 &&
+      firebase
+        .firestore()
+        .collection("feedback")
+        .doc(this.state.numberInput)
+        .set({
+          email: emailInput,
+          phoneNumber: numberInput,
+          chooseProducts: this.props.prods,
+        });
+
+    emailInput.length > 12 &&
+      numberInput.length > 9 &&
+      this.setState({ numberInput: "", emailInput: "" });
+
+    this.props.removeAllObject();
+    this.props.removeAllItems();
+  };
 
   render() {
     return (
@@ -32,13 +55,42 @@ class PhoneEmailPopup extends Component {
               type="text"
             />
           </div>
-          <button>Отправить</button>
+          <button
+            onClick={() =>
+              this.sendDataToDB(this.state.emailInput, this.state.numberInput)
+            }
+          >
+            Отправить
+          </button>
 
-          <img onClick={() => this.props.modifyPopup('none')} src="/svg/close.svg" alt="close" />
+          <img
+            onClick={() => this.props.modifyPopup("none")}
+            src="/svg/close.svg"
+            alt="close"
+          />
         </div>
       </div>
     );
   }
 }
 
-export default connect()(PhoneEmailPopup);
+export default connect(
+  (state) => ({
+    prods: state.addItem,
+  }),
+
+  (dispatch) => ({
+    removeAllItems: () => {
+      dispatch({
+        type: "EMPTY_ITEMS",
+        payload: [],
+      });
+    },
+    removeAllObject: () => {
+      dispatch({
+        type: "EMPTY_PRODUCTS",
+        payload: { counter: 0 },
+      });
+    },
+  })
+)(PhoneEmailPopup);

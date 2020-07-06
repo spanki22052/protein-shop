@@ -81,6 +81,7 @@ class ShopPage extends Component {
   };
 
   render() {
+    console.log(this.props.prods)
     return (
       <div className="shop-page">
         <div className="shop-page__padding">

@@ -1,4 +1,4 @@
-const initialState = [];
+var initialState = [];
 
 export default function returnItems(state = initialState, action) {
   switch (action.type) {
@@ -9,7 +9,7 @@ export default function returnItems(state = initialState, action) {
       newList.splice(newList.indexOf(action.payload), 1);
       return newList;
     case "EMPTY_ITEMS":
-      return [];
+      return action.payload;
     default:
       return state;
   }
