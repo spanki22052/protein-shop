@@ -33,7 +33,7 @@ class ShopPage extends Component {
       .get()
       .then(async (info) => {
         (await info.data()) !== undefined &&
-          this.setState({ products: info.data() });
+          this.setState({ products: info.data().products });
         let elementsCounter = 0;
         this.state.categories.map((element) => {
           elementsCounter +=
@@ -121,7 +121,7 @@ class ShopPage extends Component {
                           <img src={el.image} alt="productimage" />
                           <button
                             onClick={() =>
-                              this.addNewProduct(el.title, el.price)
+                              this.addNewProduct(el.title, el.price, el.image)
                             }
                           >
                             Добавить в корзину

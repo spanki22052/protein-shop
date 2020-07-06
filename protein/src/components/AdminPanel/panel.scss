@@ -105,8 +105,11 @@
         select {
           display: block;
           width: 50%;
+          margin-top: 10px;
+          min-width: 180px;
           text-align: center;
-          padding: 5px;
+          padding: 1px;
+          border: 1px solid black;
 
           font-family: "Montserrat", sans-serif;
           font-size: 1.3em;

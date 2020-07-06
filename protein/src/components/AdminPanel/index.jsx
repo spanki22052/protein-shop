@@ -9,7 +9,12 @@ class AdminPanel extends Component {
     this.state = {
       currentSituation: "",
       category: "",
+      currentProduct: "",
       categories: [],
+      products: {},
+      productTitle: "",
+      productUrl: "",
+      productPrice: "",
     };
   }
 
@@ -25,12 +30,24 @@ class AdminPanel extends Component {
       .get()
       .then(async (info) => {
         (await info.data()) !== undefined &&
-          this.setState({ categories: info.data().category });
+          this.setState({
+            categories: info.data().category,
+            currentProduct: info.data().category[0],
+          });
+      });
+
+    firebase
+      .firestore()
+      .collection("products")
+      .doc("productsObject")
+      .get()
+      .then(async (info) => {
+        (await info.data()) !== undefined &&
+          this.setState({ products: info.data() });
       });
   }
 
   sendCategoryToDb = (category, categories) => {
-    console.log(categories)
     let newCategories = [...categories, category];
     this.setState({ categories: newCategories });
     category.length > 0 &&
@@ -40,6 +57,30 @@ class AdminPanel extends Component {
 
     category.length > 0 && this.setState({ category: "" });
   };
+
+  sendProductsToDb = (product, products, currentProduct) => {
+    let newProducts = { ...products };
+    let newProductsList =
+      products[currentProduct] !== undefined
+        ? [...products[currentProduct], product]
+        : [product];
+    newProducts[currentProduct] = newProductsList;
+    this.setState({ products: newProducts });
+    product.title.length > 0 &&
+      product.image.length > 0 &&
+      product.price.length > 0 &&
+      firebase.firestore().collection("products").doc("productsObject").set({
+        products: newProducts,
+      });
+
+      this.setState({ productPrice: "", productTitle: "", productUrl: "" });
+  };
+
+  changeFunc() {
+    var selectBox = document.getElementById("selectBox");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    this.setState({ currentProduct: selectedValue });
+  }
 
   render() {
     return (
@@ -89,27 +130,60 @@ class AdminPanel extends Component {
             <div className="panel-block">
               <div className="input-block">
                 <p>Выберите категорию:</p>
-                <select>
-                  <option>протеины</option>
-                  <option>протеины</option>
-                  <option>протеины</option>
+                <select id="selectBox" onChange={() => this.changeFunc()}>
+                  {this.state.categories.map((element, index) => {
+                    return (
+                      <option onClick={() => console.log(element)} key={index}>
+                        {element}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
               <div className="input-block">
                 <p>Название товара: </p>
-                <input type="text" />
-              </div>
-              <div className="input-block">
-                <p>Описание товара: </p>
-                <textarea type="text" />
+                <input
+                  value={this.state.productTitle}
+                  onChange={(e) =>
+                    this.setState({ productTitle: e.target.value })
+                  }
+                  type="text"
+                />
               </div>
               <div className="input-block">
                 <p>URL картинки товара: </p>
-                <input type="text" />
+                <input
+                  value={this.state.productUrl}
+                  onChange={(e) =>
+                    this.setState({ productUrl: e.target.value })
+                  }
+                  type="text"
+                />
               </div>
               <div className="input-block">
                 <p>Цена товара (за шт.): </p>
-                <input type="text" />
+                <input
+                  value={this.state.productPrice}
+                  onChange={(e) =>
+                    this.setState({ productPrice: e.target.value })
+                  }
+                  type="text"
+                />
+                <button
+                  onClick={() =>
+                    this.sendProductsToDb(
+                      {
+                        title: this.state.productTitle,
+                        image: this.state.productUrl,
+                        price: this.state.productPrice,
+                      },
+                      this.state.products,
+                      this.state.currentProduct
+                    )
+                  }
+                >
+                  Добавить
+                </button>
               </div>
             </div>
           )}
