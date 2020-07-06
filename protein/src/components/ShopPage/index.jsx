@@ -9,7 +9,7 @@ class ShopPage extends Component {
     super();
     this.state = {
       categories: [],
-      products: undefined,
+      products: {},
       productsFilter: "all",
       productsCounter: 0,
     };
@@ -23,7 +23,7 @@ class ShopPage extends Component {
       .get()
       .then(async (info) => {
         (await info.data()) !== undefined &&
-          this.setState({ categories: info.data().categories });
+          this.setState({ categories: info.data().category });
       });
 
     firebase
@@ -33,11 +33,13 @@ class ShopPage extends Component {
       .get()
       .then(async (info) => {
         (await info.data()) !== undefined &&
-          info.data() !== undefined &&
           this.setState({ products: info.data() });
         let elementsCounter = 0;
         this.state.categories.map((element) => {
-          elementsCounter += this.state.products[element].length;
+          elementsCounter +=
+            this.state.products[element] !== undefined
+              ? this.state.products[element].length
+              : 0;
           return element;
         });
         this.setState({
@@ -52,7 +54,10 @@ class ShopPage extends Component {
     item !== "all"
       ? (elementsCounter = this.state.products[item].length)
       : this.state.categories.map((element) => {
-          elementsCounter += this.state.products[element].length;
+          elementsCounter +=
+            this.state.products[element] !== undefined
+              ? this.state.products[element].length
+              : 0;
           return element;
         });
     this.setState({
@@ -81,7 +86,6 @@ class ShopPage extends Component {
   };
 
   render() {
-    console.log(this.props.prods)
     return (
       <div className="shop-page">
         <div className="shop-page__padding">
@@ -89,17 +93,21 @@ class ShopPage extends Component {
             <div className="categories">
               <h1>Категории</h1>
               <div className="line"></div>
-              {this.state.categories.map((element, index) => {
-                return (
-                  <h2 key={index} onClick={() => this.changeFilter(element)}>
-                    {element.replace(element[0], element[0].toUpperCase())}
-                  </h2>
-                );
-              })}
-              <h2 onClick={() => this.changeFilter("all")}>
-                {" "}
-                Показать все...{" "}
-              </h2>
+              {this.state.categories.length > 0 &&
+                Object.keys(this.state.products).length > 0 &&
+                this.state.categories.map((element, index) => {
+                  return (
+                    this.state.products[element] !== undefined && (
+                      <h2
+                        key={index}
+                        onClick={() => this.changeFilter(element)}
+                      >
+                        {element.replace(element[0], element[0].toUpperCase())}
+                      </h2>
+                    )
+                  );
+                })}
+              <h2 onClick={() => this.changeFilter("all")}>Показать все...</h2>
             </div>
             <div className="all-products">
               <h1>Все результаты</h1>
@@ -125,24 +133,28 @@ class ShopPage extends Component {
                     }
                   )}
                 {this.state.productsFilter === "all" &&
-                  this.state.products !== undefined &&
+                  this.state.categories.length > 0 &&
+                  Object.keys(this.state.products).length > 0 &&
                   this.state.categories.map((element) => {
-                    return this.state.products[element].map((el, index) => {
-                      return (
-                        <div key={index} className="product-block">
-                          <img src={el.image} alt="productimage" />
-                          <button
-                            onClick={() =>
-                              this.addNewProduct(el.title, el.price, el.image)
-                            }
-                          >
-                            Добавить в корзину
-                          </button>
-                          <h1>{el.title}</h1>
-                          <h2>Цена: {el.price}</h2>
-                        </div>
-                      );
-                    });
+                    return (
+                      this.state.products[element] !== undefined &&
+                      this.state.products[element].map((el, index) => {
+                        return (
+                          <div key={index} className="product-block">
+                            <img src={el.image} alt="productimage" />
+                            <button
+                              onClick={() =>
+                                this.addNewProduct(el.title, el.price, el.image)
+                              }
+                            >
+                              Добавить в корзину
+                            </button>
+                            <h1>{el.title}</h1>
+                            <h2>Цена: {el.price}</h2>
+                          </div>
+                        );
+                      })
+                    );
                   })}
               </div>
             </div>

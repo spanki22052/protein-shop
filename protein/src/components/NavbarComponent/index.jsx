@@ -36,7 +36,6 @@ const NavbarComponent = ({ prods }) => {
         style={{ backgroundColor: "none", zIndex: "5" }}
         collapseOnSelect
         expand="lg"
-        bg={bg}
         variant="light"
       >
         <Navbar.Brand>
