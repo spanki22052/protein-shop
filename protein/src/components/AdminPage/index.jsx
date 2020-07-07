@@ -35,7 +35,7 @@ class AdminPage extends Component {
     return (
       <div className="admin-page">
         <div className="admin-page__padding">
-          <h1>Обратная связь</h1>
+          <h1>Вход в админ панель</h1>
           <div className="input-block">
             <p>Почта:</p>
             <input
