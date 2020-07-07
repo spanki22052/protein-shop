@@ -54,15 +54,24 @@ const MainPage = () => {
           <div className="products-padding">
             <div className="product-block">
               <img src="/images/protein1.png" alt="proteinproduct" />
-              <button>Подробнее</button>
+              <button>
+                {" "}
+                <Link to="/shop">Подробнее</Link>
+              </button>
             </div>
             <div className="product-block">
-              <img src="/images/protein1.png" alt="proteinproduct" />
-              <button>Подробнее</button>
+              <img src="/images/protein3.png" alt="proteinproduct" />
+              <button>
+                {" "}
+                <Link to="/shop">Подробнее</Link>
+              </button>
             </div>
             <div className="product-block">
-              <img src="/images/protein1.png" alt="proteinproduct" />
-              <button>Подробнее</button>
+              <img src="/images/protein2.jpg" alt="proteinproduct" />
+              <button>
+                {" "}
+                <Link to="/shop">Подробнее</Link>
+              </button>
             </div>
           </div>
         </div>
