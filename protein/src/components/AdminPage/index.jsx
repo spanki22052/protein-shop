@@ -23,7 +23,6 @@ class AdminPage extends Component {
       .then(
         () => {
           this.props.history.push("/adminpanel");
-          console.log("you are in");
         },
         (err) => {
           this.setState({ loginError: "Server error" });

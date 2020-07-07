@@ -25,7 +25,7 @@ class AdminPanel extends Component {
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(async (_usr) => {
-      if (!_usr) this.props.history.push("/");
+      if (!_usr) this.props.history.push("/admin");
     });
 
     firebase
@@ -76,6 +76,18 @@ class AdminPanel extends Component {
     category.length > 0 && this.setState({ category: "" });
   };
 
+  removeElementFromObject = (object, whatToRemove) => {
+    let newObject = { ...object };
+
+    this.setState({ feedbacks: newObject })
+
+    delete newObject[whatToRemove];
+      firebase.firestore().collection("feedback").doc("numbers").set({
+        numbers: newObject,
+      });
+
+  };
+
   sendProductsToDb = (product, products, currentProduct) => {
     let newProducts = { ...products.products };
     let newProductsList =
@@ -83,10 +95,8 @@ class AdminPanel extends Component {
         ? [...newProducts[currentProduct], product]
         : [product];
     newProducts[currentProduct] = newProductsList;
-    console.log(newProducts);
 
     this.setState({ products: newProducts });
-    console.log(newProducts);
     firebase.firestore().collection("products").doc("productsObject").set({
       products: newProducts,
     });
@@ -228,11 +238,23 @@ class AdminPanel extends Component {
                         onClick={() =>
                           this.setState({
                             popUpHolder: "block",
-                            currentPopupProduct: this.state.feedbacks[element].chooseProducts,
+                            currentPopupProduct: this.state.feedbacks[element]
+                              .chooseProducts,
                           })
                         }
                       >
                         Просмотреть
+                      </button>
+                      <button
+                        className="delbutton"
+                        onClick={() =>
+                          this.removeElementFromObject(
+                            this.state.feedbacks,
+                            element
+                          )
+                        }
+                      >
+                        Удалить
                       </button>
                     </div>
                   </div>
@@ -241,7 +263,11 @@ class AdminPanel extends Component {
             </div>
           )}
 
-          <a href="/" onClick={firebase.auth().signOut()}>Выход из админ панели</a>
+          <a href="/">
+            <span onClick={() => firebase.auth().signOut()}>
+              Выход из админ панели
+            </span>
+          </a>
         </div>
       </div>
     );

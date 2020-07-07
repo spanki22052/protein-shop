@@ -93,10 +93,7 @@ class ShopPage extends Component {
 
   removeProductFromDb = (products, currentCategory, currentCategoryIndex) => {
     let newProducts = { ...products };
-    console.log(newProducts[currentCategory]);
-    console.log(newProducts[currentCategory][currentCategoryIndex]);
     newProducts[currentCategory].splice(currentCategoryIndex, 1);
-    console.log(newProducts);
 
     this.setState({ products: newProducts });
     firebase.firestore().collection("products").doc("productsObject").set({

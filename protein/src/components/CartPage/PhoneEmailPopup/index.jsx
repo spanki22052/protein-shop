@@ -28,7 +28,6 @@ class PhoneEmailPopup extends Component {
       });
   }
   sendDataToDB = (emailInput, numberInput) => {
-    console.log(this.state.numbers);
     let number = {
       email: emailInput,
       phoneNumber: numberInput,
