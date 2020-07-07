@@ -67,7 +67,7 @@ const MainPage = () => {
               </button>
             </div>
             <div className="product-block">
-              <img src="/images/protein2.jpg" alt="proteinproduct" />
+              <img src="/images/protein2.png" alt="proteinproduct" />
               <button>
                 {" "}
                 <Link to="/shop">Подробнее</Link>
