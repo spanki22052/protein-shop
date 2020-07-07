@@ -12,10 +12,16 @@ class ShopPage extends Component {
       products: {},
       productsFilter: "all",
       productsCounter: 0,
+      isAdmin: false,
     };
   }
 
   componentDidMount = () => {
+    firebase.auth().onAuthStateChanged(async (_usr) => {
+      if (_usr) this.setState({ isAdmin: true });
+      else this.setState({ isAdmin: false });
+    });
+
     firebase
       .firestore()
       .collection("products")
@@ -85,6 +91,19 @@ class ShopPage extends Component {
       this.props.sendProductToList(title);
   };
 
+  removeProductFromDb = (products, currentCategory, currentCategoryIndex) => {
+    let newProducts = { ...products };
+    console.log(newProducts[currentCategory]);
+    console.log(newProducts[currentCategory][currentCategoryIndex]);
+    newProducts[currentCategory].splice(currentCategoryIndex, 1);
+    console.log(newProducts);
+
+    this.setState({ products: newProducts });
+    firebase.firestore().collection("products").doc("productsObject").set({
+      products: newProducts,
+    });
+  };
+
   render() {
     return (
       <div className="shop-page">
@@ -97,7 +116,8 @@ class ShopPage extends Component {
                 Object.keys(this.state.products).length > 0 &&
                 this.state.categories.map((element, index) => {
                   return (
-                    this.state.products[element] !== undefined && (
+                    this.state.products[element] !== undefined &&
+                    this.state.products[element].length > 0 && (
                       <h2
                         key={index}
                         onClick={() => this.changeFilter(element)}
@@ -118,6 +138,19 @@ class ShopPage extends Component {
                     (el, index) => {
                       return (
                         <div key={index} className="product-block">
+                          {this.state.isAdmin === true && (
+                            <button
+                              onClick={() =>
+                                this.removeProductFromDb(
+                                  this.state.products,
+                                  this.state.productsFilter,
+                                  index
+                                )
+                              }
+                            >
+                              Удалить
+                            </button>
+                          )}
                           <img src={el.image} alt="productimage" />
                           <button
                             onClick={() =>
@@ -141,6 +174,19 @@ class ShopPage extends Component {
                       this.state.products[element].map((el, index) => {
                         return (
                           <div key={index} className="product-block">
+                            {this.state.isAdmin === true && (
+                              <button
+                                onClick={() =>
+                                  this.removeProductFromDb(
+                                    this.state.products,
+                                    element,
+                                    index
+                                  )
+                                }
+                              >
+                                Удалить
+                              </button>
+                            )}
                             <img src={el.image} alt="productimage" />
                             <button
                               onClick={() =>

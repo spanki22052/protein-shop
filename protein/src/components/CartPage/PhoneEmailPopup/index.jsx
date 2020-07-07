@@ -10,28 +10,54 @@ class PhoneEmailPopup extends Component {
     this.state = {
       numberInput: "",
       emailInput: "",
+      numbers: {},
     };
   }
 
+  componentDidMount() {
+    firebase
+      .firestore()
+      .collection("feedback")
+      .doc("numbers")
+      .get()
+      .then(async (info) => {
+        (await info.data()) !== undefined &&
+          this.setState({
+            numbers: info.data().numbers,
+          });
+      });
+  }
   sendDataToDB = (emailInput, numberInput) => {
-    emailInput.length > 12 &&
-      numberInput.length > 9 &&
-      firebase
-        .firestore()
-        .collection("feedback")
-        .doc(this.state.numberInput)
-        .set({
-          email: emailInput,
-          phoneNumber: numberInput,
-          chooseProducts: this.props.prods,
-        });
+    console.log(this.state.numbers);
+    let number = {
+      email: emailInput,
+      phoneNumber: numberInput,
+      chooseProducts: this.props.prods,
+    };
 
-    emailInput.length > 12 &&
+    let allNumbers = {
+      ...this.state.numbers,
+    };
+
+    allNumbers[numberInput] = number;
+
+    emailInput.length > 9 &&
+      numberInput.length > 9 &&
+      firebase.firestore().collection("feedback").doc("numbers").set({
+        numbers: allNumbers,
+      });
+
+    emailInput.length > 9 &&
       numberInput.length > 9 &&
       this.setState({ numberInput: "", emailInput: "" });
 
-    this.props.removeAllObject();
-    this.props.removeAllItems();
+    emailInput.length > 9 &&
+      numberInput.length > 9 &&
+      this.props.removeAllObject();
+
+    emailInput.length > 9 &&
+      numberInput.length > 9 &&
+      this.props.removeAllItems();
   };
 
   render() {
@@ -64,6 +90,7 @@ class PhoneEmailPopup extends Component {
           </button>
 
           <img
+            style={{ cursor: "pointer" }}
             onClick={() => this.props.modifyPopup("none")}
             src="/svg/close.svg"
             alt="close"

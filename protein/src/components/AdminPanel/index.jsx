@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./panel.scss";
+import ProductsPopUp from "./ProductsPopUp";
 
 const firebase = require("firebase");
 
@@ -15,6 +16,10 @@ class AdminPanel extends Component {
       productTitle: "",
       productUrl: "",
       productPrice: "",
+      feedbacks: {},
+      numbersList: [],
+      popUpHolder: "none",
+      currentPopupProduct: {},
     };
   }
 
@@ -32,6 +37,7 @@ class AdminPanel extends Component {
         (await info.data()) !== undefined &&
           this.setState({
             categories: info.data().category,
+            currentProduct: info.data().category[0],
           });
       });
 
@@ -43,6 +49,19 @@ class AdminPanel extends Component {
       .then(async (info) => {
         (await info.data()) !== undefined &&
           this.setState({ products: info.data() });
+      });
+
+    firebase
+      .firestore()
+      .collection("feedback")
+      .doc("numbers")
+      .get()
+      .then(async (info) => {
+        (await info.data()) !== undefined &&
+          this.setState({ feedbacks: info.data().numbers });
+        for (var key in info.data().numbers) {
+          this.setState({ numbersList: [...this.state.numbersList, key] });
+        }
       });
   }
 
@@ -58,26 +77,23 @@ class AdminPanel extends Component {
   };
 
   sendProductsToDb = (product, products, currentProduct) => {
-    let newProducts = {};
-    for (var key in products) {
-      newProducts[key] = products[key];
-    }
-    console.log(newProducts);
+    let newProducts = { ...products.products };
     let newProductsList =
-      products[currentProduct] !== undefined
-        ? [...products[currentProduct], product]
+      newProducts[currentProduct] !== undefined
+        ? [...newProducts[currentProduct], product]
         : [product];
     newProducts[currentProduct] = newProductsList;
+    console.log(newProducts);
+
     this.setState({ products: newProducts });
-    product.title.length > 0 &&
-      product.image.length > 0 &&
-      product.price.length > 0 &&
-      firebase.firestore().collection("products").doc("productsObject").set({
-        products: newProducts,
-      });
+    console.log(newProducts);
+    firebase.firestore().collection("products").doc("productsObject").set({
+      products: newProducts,
+    });
 
     this.setState({ productPrice: "", productTitle: "", productUrl: "" });
   };
+
   handleChange = (event) => {
     this.setState({ value: event.target.value });
   };
@@ -85,6 +101,11 @@ class AdminPanel extends Component {
   render() {
     return (
       <div className="admin-panel">
+        <ProductsPopUp
+          displayPopup={this.state.popUpHolder}
+          modifyPopup={(mod) => this.setState({ popUpHolder: mod })}
+          currentPopupProduct={this.state.currentPopupProduct}
+        />
         <div className="admin-panel__padding">
           <h1>Админ панель</h1>
           <div className="buttons-holder">
@@ -191,11 +212,36 @@ class AdminPanel extends Component {
           )}
           {this.state.currentSituation === "feedback" && (
             <div className="panel-block">
-              <h1>feedback page</h1>
+              {this.state.numbersList.map((element, index) => {
+                return (
+                  <div key={index} className="number-blank">
+                    <div className="left-side">
+                      <p>Номер: {element}</p>
+                      <p>Почта: {this.state.feedbacks[element].email}</p>
+                    </div>
+                    <div className="right-side">
+                      <p>
+                        Заказал:
+                        {this.state.feedbacks[element].chooseProducts.counter}
+                      </p>
+                      <button
+                        onClick={() =>
+                          this.setState({
+                            popUpHolder: "block",
+                            currentPopupProduct: this.state.feedbacks[element].chooseProducts,
+                          })
+                        }
+                      >
+                        Просмотреть
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           )}
 
-          <button className="submit-button">Подтвердить</button>
+          <a href="/" onClick={firebase.auth().signOut()}>Выход из админ панели</a>
         </div>
       </div>
     );
