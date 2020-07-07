@@ -17,46 +17,51 @@
   &__padding {
     padding: 20px;
     position: relative;
-    overflow: auto;
-
-    .product-block {
-      float: left;
-      margin-top: 20px;
+    .products-block {
       width: 100%;
-      .image-side {
-        width: 100px;
-        height: 100px;
-
+      height: 300px;
+      overflow: auto;
+      margin-top: 30px;
+      .product-block {
         float: left;
-        img {
+        margin-top: 20px;
+        width: 100%;
+        overflow: auto;
+        .image-side {
           width: 100px;
           height: 100px;
-          object-fit: contain;
-        }
-      }
-      .text-side {
-        float: left;
-        width: 60%;
-        p {
-          font-family: "Montserrat", sans-serif;
-          font-style: normal;
-          font-weight: 300;
-          font-size: 18px;
-          line-height: 17px;
 
-          color: #000000;
+          float: left;
+          img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+          }
         }
-      }
+        .text-side {
+          float: left;
+          width: 60%;
+          p {
+            font-family: "Montserrat", sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 17px;
 
-      .line {
-        display: block;
-        float: left;
-        margin: auto;
-        width: 100%;
-        min-width: 170px;
-        height: 0px;
-        border-bottom: 0.2px solid #b4afaf;
-        transform: rotate(0.12deg);
+            color: #000000;
+          }
+        }
+
+        .line {
+          display: block;
+          float: left;
+          margin: auto;
+          width: 100%;
+          min-width: 170px;
+          height: 0px;
+          border-bottom: 0.2px solid #b4afaf;
+          transform: rotate(0.12deg);
+        }
       }
     }
 
