@@ -128,7 +128,7 @@ class ShopPage extends Component {
             </div>
             <div className="all-products">
               <h1>Все результаты</h1>
-              <p>{this.state.productsCounter} результатов</p>
+              <p>{this.state.productsCounter} результата (ов)</p>
               <div className="product-blocks">
                 {this.state.productsFilter !== "all" &&
                   this.state.products[this.state.productsFilter].map(
