@@ -78,14 +78,15 @@ class AdminPanel extends Component {
 
   removeElementFromObject = (object, whatToRemove) => {
     let newObject = { ...object };
+    let newList = [...this.state.numbersList];
+    newList.splice(newList.indexOf(whatToRemove), 1);
 
-    this.setState({ feedbacks: newObject })
+    this.setState({ feedbacks: newObject, numbersList: newList });
 
     delete newObject[whatToRemove];
-      firebase.firestore().collection("feedback").doc("numbers").set({
-        numbers: newObject,
-      });
-
+    firebase.firestore().collection("feedback").doc("numbers").set({
+      numbers: newObject,
+    });
   };
 
   sendProductsToDb = (product, products, currentProduct) => {
