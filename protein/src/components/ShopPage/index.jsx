@@ -157,7 +157,7 @@ class ShopPage extends Component {
                             Добавить в корзину
                           </button>
                           <h1>{el.title}</h1>
-                          <h2>Цена: {el.price} р</h2>
+                          <h2>Цена: {el.price}р</h2>
                         </div>
                       );
                     }
@@ -193,7 +193,7 @@ class ShopPage extends Component {
                               Добавить в корзину
                             </button>
                             <h1>{el.title}</h1>
-                            <h2>Цена: {el.price}</h2>
+                            <h2>Цена: {el.price}р</h2>
                           </div>
                         );
                       })
