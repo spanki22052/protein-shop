@@ -19,7 +19,7 @@ const NavbarComponent = ({ prods }) => {
       : "#6af15e"
   );
   const [bg, setBg] = useState(windowSize >= 1000 ? "none" : "light");
-
+  console.log(bg)
   var margTop = windowSize >= 1000 ? "0" : "110px !important";
 
   const StyledBadge = withStyles((theme) => ({

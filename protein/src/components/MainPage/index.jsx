@@ -55,22 +55,34 @@ const MainPage = () => {
             <div className="product-block">
               <img src="/images/protein1.png" alt="proteinproduct" />
               <button>
-                {" "}
-                <Link to="/shop">Подробнее</Link>
+                <Link
+                  to="/shop"
+                  style={{ textDecoration: "none", color: "#50ce46" }}
+                >
+                  Подробнее
+                </Link>
               </button>
             </div>
             <div className="product-block">
               <img src="/images/protein3.png" alt="proteinproduct" />
               <button>
-                {" "}
-                <Link to="/shop">Подробнее</Link>
+                <Link
+                  to="/shop"
+                  style={{ textDecoration: "none", color: "#50ce46" }}
+                >
+                  Подробнее
+                </Link>
               </button>
             </div>
             <div className="product-block">
               <img src="/images/protein2.png" alt="proteinproduct" />
               <button>
-                {" "}
-                <Link to="/shop">Подробнее</Link>
+                <Link
+                  to="/shop"
+                  style={{ textDecoration: "none", color: "#50ce46" }}
+                >
+                  Подробнее
+                </Link>
               </button>
             </div>
           </div>
@@ -115,7 +127,12 @@ const MainPage = () => {
               <div className="white-text-block">
                 <h1>Заказывайте протеины в {company}.ml</h1>
                 <button>
-                  <Link to="/shop" style={{ textDecoration: "none", color: "white"  }}>Перейти в магазин</Link>
+                  <Link
+                    to="/shop"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    Перейти в магазин
+                  </Link>
                 </button>
               </div>
             </div>
