@@ -115,7 +115,7 @@ const MainPage = () => {
               <div className="white-text-block">
                 <h1>Заказывайте протеины в {company}.ml</h1>
                 <button>
-                  <Link to="/shop" style={{ textDecoration: "none", color: "#50ce46"  }}>Перейти в магазин</Link>
+                  <Link to="/shop" style={{ textDecoration: "none", color: "white"  }}>Перейти в магазин</Link>
                 </button>
               </div>
             </div>
