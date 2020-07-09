@@ -74,6 +74,19 @@ class AdminPanel extends Component {
       });
 
     category.length > 0 && this.setState({ category: "" });
+
+    firebase
+      .firestore()
+      .collection("products")
+      .doc("categories")
+      .get()
+      .then(async (info) => {
+        (await info.data()) !== undefined &&
+          this.setState({
+            categories: info.data().category,
+            currentProduct: info.data().category[0],
+          });
+      });
   };
 
   removeElementFromObject = (object, whatToRemove) => {
@@ -96,6 +109,7 @@ class AdminPanel extends Component {
         ? [...newProducts[currentProduct], product]
         : [product];
     newProducts[currentProduct] = newProductsList;
+    console.log(newProductsList);
 
     this.setState({ products: newProducts });
     firebase.firestore().collection("products").doc("productsObject").set({
@@ -103,6 +117,16 @@ class AdminPanel extends Component {
     });
 
     this.setState({ productPrice: "", productTitle: "", productUrl: "" });
+
+    firebase
+      .firestore()
+      .collection("products")
+      .doc("productsObject")
+      .get()
+      .then(async (info) => {
+        (await info.data()) !== undefined &&
+          this.setState({ products: info.data() });
+      });
   };
 
   handleChange = (event) => {

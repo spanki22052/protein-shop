@@ -14,9 +14,9 @@ const NavbarComponent = ({ prods }) => {
   const [color, setColor] = useState(
     currentLink[currentLink.length - 1].length < 1
       ? windowSize >= 1000
-        ? "white"
-        : "#6af15e"
-      : "#6af15e"
+        ? "#bbf1c8"
+        : "#bbf1c8"
+      : "#bbf1c8"
   );
   const [bg, setBg] = useState(windowSize >= 1000 ? "none" : "light");
   console.log(bg)
@@ -44,7 +44,7 @@ const NavbarComponent = ({ prods }) => {
               to="/"
               style={{ textDecoration: "none", color: "#6af15e" }}
               onClick={() => {
-                setColor(windowSize <= 1000 ? "#6af15e" : "white");
+                setColor(windowSize <= 1000 ? "#bbf1c8" : "#bbf1c8");
                 setBg("none");
               }}
             >
@@ -71,7 +71,7 @@ const NavbarComponent = ({ prods }) => {
                   marginTop: margTop,
                 }}
                 onClick={() => {
-                  setColor(windowSize <= 1000 ? "#6af15e" : "white");
+                  setColor(windowSize <= 1000 ? "#bbf1c8" : "#bbf1c8");
                   setBg(windowSize < 1000 ? "light" : 'none');
                 }}
               >
@@ -93,7 +93,7 @@ const NavbarComponent = ({ prods }) => {
                   marginLeft: "10px",
                 }}
                 onClick={() => {
-                  setColor("#6af15e");
+                  setColor("#bbf1c8");
                   setBg(windowSize < 1000 ? "light" : 'none');
                 }}
               >
@@ -105,7 +105,7 @@ const NavbarComponent = ({ prods }) => {
               to="/cart"
               style={{ textDecoration: "none", marginLeft: "10px" }}
               onClick={() => {
-                setColor("#6af15e");
+                setColor("#bbf1c8");
                   setBg(windowSize < 1000 ? "light" : 'none');
               }}
             >
