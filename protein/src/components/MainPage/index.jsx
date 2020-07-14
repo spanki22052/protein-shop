@@ -32,7 +32,7 @@ const MainPage = () => {
         />
         <div className="text-block">
           <h2>
-            Мы располагаем одной из лучших протеиновых продукций в Махачкале.
+            BioMart - спортивное питание для всей семьи!
           </h2>
           <Link to="/shop">
             <button className="go-to-products"> Перейти к товарам </button>

@@ -40,8 +40,8 @@ const NavbarComponent = ({ prods }) => {
       >
         <Navbar.Brand>
           <span style={{ float: "left" }} className="green-letters">
-            <Link to="/" style={{ textDecoration: "none" }}>
-              <span style={{ color: "#6af15e" }}>BIO</span>{" "}
+            <Link to="/" style={{ textDecoration: "none", borderTop: "3px solid yellow", borderBottom: '3px solid yellow' }}>
+              <span style={{ color: "#14be39" }}>BIO</span>{" "}
               <span style={{ color: "yellow" }}>MART</span>
             </Link>
           </span>
