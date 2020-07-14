@@ -40,9 +40,16 @@ const NavbarComponent = ({ prods }) => {
       >
         <Navbar.Brand>
           <span style={{ float: "left" }} className="green-letters">
-            <Link to="/" style={{ textDecoration: "none", borderTop: "3px solid yellow", borderBottom: '3px solid yellow' }}>
-              <span style={{ color: "#14be39" }}>BIO</span>{" "}
-              <span style={{ color: "yellow" }}>MART</span>
+            <Link
+              to="/"
+              style={{
+                textDecoration: "none",
+                borderTop: "3px solid #fce205",
+                borderBottom: "3px solid #fce205",
+              }}
+            >
+              <span style={{ color: "#14be39" }}>BIO</span>
+              <span style={{ color: "#fce205", marginRight: "1px" }}>MART</span>
             </Link>
           </span>
         </Navbar.Brand>
@@ -61,7 +68,7 @@ const NavbarComponent = ({ prods }) => {
                 to="/"
                 style={{
                   textDecoration: "none",
-                  color: "yellow",
+                  color: "#fce205",
                   marginTop: margTop,
                 }}
                 onClick={() => {
@@ -82,7 +89,7 @@ const NavbarComponent = ({ prods }) => {
                 to="/shop"
                 style={{
                   textDecoration: "none",
-                  color: "yellow",
+                  color: "#fce205",
                   marginLeft: "10px",
                 }}
                 onClick={() => {
@@ -106,7 +113,7 @@ const NavbarComponent = ({ prods }) => {
                   <ShoppingCartIcon
                     style={{
                       marginTop: "-10px",
-                      fill: "yellow",
+                      fill: "#fce205",
                       outline: "none",
                     }}
                   />
