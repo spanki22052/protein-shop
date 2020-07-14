@@ -19,7 +19,7 @@ const NavbarComponent = ({ prods }) => {
       : "#bbf1c8"
   );
   const [bg, setBg] = useState(windowSize >= 1000 ? "none" : "light");
-  console.log(bg)
+  console.log(bg);
   var margTop = windowSize >= 1000 ? "0" : "110px !important";
 
   const StyledBadge = withStyles((theme) => ({
@@ -40,15 +40,9 @@ const NavbarComponent = ({ prods }) => {
       >
         <Navbar.Brand>
           <span style={{ float: "left" }} className="green-letters">
-            <Link
-              to="/"
-              style={{ textDecoration: "none", color: "#6af15e" }}
-              onClick={() => {
-                setColor(windowSize <= 1000 ? "#bbf1c8" : "#bbf1c8");
-                setBg("none");
-              }}
-            >
-              Dagestan
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <span style={{ color: "#6af15e" }}>BIO</span>{" "}
+              <span style={{ color: "yellow" }}>MART</span>
             </Link>
           </span>
         </Navbar.Brand>
@@ -67,12 +61,11 @@ const NavbarComponent = ({ prods }) => {
                 to="/"
                 style={{
                   textDecoration: "none",
-                  color: color,
+                  color: "yellow",
                   marginTop: margTop,
                 }}
                 onClick={() => {
-                  setColor(windowSize <= 1000 ? "#bbf1c8" : "#bbf1c8");
-                  setBg(windowSize < 1000 ? "light" : 'none');
+                  setBg(windowSize < 1000 ? "light" : "none");
                 }}
               >
                 {" "}
@@ -81,7 +74,7 @@ const NavbarComponent = ({ prods }) => {
             </span>
             <span
               style={{
-                color: color,
+                color: "yellow",
               }}
               className="nav-link-bar"
             >
@@ -89,12 +82,12 @@ const NavbarComponent = ({ prods }) => {
                 to="/shop"
                 style={{
                   textDecoration: "none",
-                  color: color,
+                  color: "yellow",
                   marginLeft: "10px",
                 }}
                 onClick={() => {
                   setColor("#bbf1c8");
-                  setBg(windowSize < 1000 ? "light" : 'none');
+                  setBg(windowSize < 1000 ? "light" : "none");
                 }}
               >
                 {" "}
@@ -106,7 +99,6 @@ const NavbarComponent = ({ prods }) => {
               style={{ textDecoration: "none", marginLeft: "10px" }}
               onClick={() => {
                 setColor("#bbf1c8");
-                  setBg(windowSize < 1000 ? "light" : 'none');
               }}
             >
               <IconButton aria-label="cart">
@@ -114,7 +106,7 @@ const NavbarComponent = ({ prods }) => {
                   <ShoppingCartIcon
                     style={{
                       marginTop: "-10px",
-                      fill: color,
+                      fill: "yellow",
                       outline: "none",
                     }}
                   />
