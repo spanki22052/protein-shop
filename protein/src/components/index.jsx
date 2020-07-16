@@ -3,8 +3,10 @@ import MainPage from "./MainPage";
 import ShopPage from "./ShopPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CartPage from "./CartPage";
-import NavbarComponent from "./NavbarComponent";
+// import NavbarComponent from "./NavbarComponent";
 import AdminPage from "./AdminPage";
+import newMainPage from "./NewMainPage";
+import NavbarComponent from "./NewNavbarComponent";
 import AdminPanel from "./AdminPanel";
 const firebase = require("firebase");
 
@@ -27,7 +29,7 @@ const ComponentsHolder = () => {
       <div className="components-holder">
         <NavbarComponent />
         <Switch>
-          <Route exact path="/" component={MainPage} />
+          <Route exact path="/" component={newMainPage} />
           <Route path="/shop" component={ShopPage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/admin" component={AdminPage} />
