@@ -10,7 +10,7 @@ const Footer = () => {
       </div>
 
       <div className="second-block">
-        <h1>о Biomart</h1>
+        <h1>Biomart</h1>
         <Link class="go-to" to="/about">
           О нас
         </Link>
