@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./new.scss";
 
-const newMainPage = () => {
+const firebase = require("firebase");
+
+function NewMainPage() {
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState({});
+  var counter = 0;
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("products")
+      .doc("productsObject")
+      .get()
+      .then((info) => {
+        setProducts(info.data().products);
+        let newCategories = [];
+        for (var key in info.data().products) {
+          newCategories.push(key);
+        }
+        setCategories(newCategories);
+      });
+  }, []);
+
   return (
     <div className="main-page">
       <div
@@ -21,162 +43,73 @@ const newMainPage = () => {
 
       <div className="big-gray-block">
         <h1 className="max-width">Сегодня в трендах:</h1>
-
         <div className="white-boxes">
-          <div className="white-product-box">
-            <div className="top-side">
-              <div className="badge">СКИДКА 10%</div>
+          {categories.map((element) => {
+            return (
+              products[element].length > 0 &&
+              products[element].map((el, index) => {
+                counter += 1;
+                return (
+                  counter < 6 && (
+                    <div key={index} className="white-product-box">
+                      {console.log(el)}
+                      <div className="top-side">
+                        <div className="badge">СКИДКА 10%</div>
 
-              <img src="/images/supermarket1.png" alt="supermarket" />
-            </div>
-            <img
-              className="product-image"
-              src="/images/protein2.jpg"
-              alt="protein"
-            />
-            <h1>Whey golden premium 150g</h1>
-            <h2>2.990p</h2>
-          </div>
-
-          <div className="white-product-box">
-            <div className="top-side">
-              <div className="badge">СКИДКА 10%</div>
-
-              <img src="/images/supermarket1.png" alt="supermarket" />
-            </div>
-            <img
-              className="product-image"
-              src="/images/protein2.jpg"
-              alt="protein"
-            />
-            <h1>Whey golden premium 150g</h1>
-            <h2>2.990p</h2>
-          </div>
-
-          <div className="white-product-box">
-            <div className="top-side">
-              <div className="badge">СКИДКА 10%</div>
-
-              <img src="/images/supermarket1.png" alt="supermarket" />
-            </div>
-            <img
-              className="product-image"
-              src="/images/protein2.jpg"
-              alt="protein"
-            />
-            <h1>Whey golden premium 150g</h1>
-            <h2>2.990p</h2>
-          </div>
-
-          <div className="white-product-box">
-            <div className="top-side">
-              <div className="badge">СКИДКА 10%</div>
-
-              <img src="/images/supermarket1.png" alt="supermarket" />
-            </div>
-            <img
-              className="product-image"
-              src="/images/protein2.jpg"
-              alt="protein"
-            />
-            <h1>Whey golden premium 150g</h1>
-            <h2>2.990p</h2>
-          </div>
-
-          <div className="white-product-box">
-            <div className="top-side">
-              <div className="badge">СКИДКА 10%</div>
-
-              <img src="/images/supermarket1.png" alt="supermarket" />
-            </div>
-            <img
-              className="product-image"
-              src="/images/protein2.jpg"
-              alt="protein"
-            />
-            <h1>Whey golden premium 150g</h1>
-            <h2>2.990p</h2>
-          </div>
+                        <img src="/images/supermarket1.png" alt="supermarket" />
+                      </div>
+                      <img
+                        className="product-image"
+                        src={el.image}
+                        alt="protein"
+                      />
+                      <h1>{el.title}</h1>
+                      <h2>{el.price}p</h2>
+                    </div>
+                  )
+                );
+              })
+            );
+          })}
         </div>
       </div>
 
       <div className="big-gray-block">
         <h1 className="max-width">Рекомендуем:</h1>
+
         <div className="white-boxes">
-          <div className="white-product-box">
-            <div className="top-side">
-              <div className="badge">СКИДКА 10%</div>
+          {categories.map((element) => {
+            counter = 0;
+          })}
 
-              <img src="/images/supermarket1.png" alt="supermarket" />
-            </div>
-            <img
-              className="product-image"
-              src="/images/protein2.jpg"
-              alt="protein"
-            />
-            <h1>Whey golden premium 150g</h1>
-            <h2>2.990p</h2>
-          </div>
+          {categories.map((element) => {
+            return (
+              products[element].length > 0 &&
+              products[element].map((el, index) => {
+                counter += 1;
+                return (
+                  counter > 5 &&
+                  counter < 11 && (
+                    <div key={index} className="white-product-box">
+                      {console.log(el)}
+                      <div className="top-side">
+                        <div className="badge">СКИДКА 10%</div>
 
-          <div className="white-product-box">
-            <div className="top-side">
-              <div className="badge">СКИДКА 10%</div>
-
-              <img src="/images/supermarket1.png" alt="supermarket" />
-            </div>
-            <img
-              className="product-image"
-              src="/images/protein2.jpg"
-              alt="protein"
-            />
-            <h1>Whey golden premium 150g</h1>
-            <h2>2.990p</h2>
-          </div>
-
-          <div className="white-product-box">
-            <div className="top-side">
-              <div className="badge">СКИДКА 10%</div>
-
-              <img src="/images/supermarket1.png" alt="supermarket" />
-            </div>
-            <img
-              className="product-image"
-              src="/images/protein2.jpg"
-              alt="protein"
-            />
-            <h1>Whey golden premium 150g</h1>
-            <h2>2.990p</h2>
-          </div>
-
-          <div className="white-product-box">
-            <div className="top-side">
-              <div className="badge">СКИДКА 10%</div>
-
-              <img src="/images/supermarket1.png" alt="supermarket" />
-            </div>
-            <img
-              className="product-image"
-              src="/images/protein2.jpg"
-              alt="protein"
-            />
-            <h1>Whey golden premium 150g</h1>
-            <h2>2.990p</h2>
-          </div>
-
-          <div className="white-product-box">
-            <div className="top-side">
-              <div className="badge">СКИДКА 10%</div>
-
-              <img src="/images/supermarket1.png" alt="supermarket" />
-            </div>
-            <img
-              className="product-image"
-              src="/images/protein2.jpg"
-              alt="protein"
-            />
-            <h1>Whey golden premium 150g</h1>
-            <h2>2.990p</h2>
-          </div>
+                        <img src="/images/supermarket1.png" alt="supermarket" />
+                      </div>
+                      <img
+                        className="product-image"
+                        src={el.image}
+                        alt="protein"
+                      />
+                      <h1>{el.title}</h1>
+                      <h2>{el.price}p</h2>
+                    </div>
+                  )
+                );
+              })
+            );
+          })}
         </div>
       </div>
 
@@ -187,6 +120,6 @@ const newMainPage = () => {
       </div>
     </div>
   );
-};
+}
 
-export default newMainPage;
+export default NewMainPage;

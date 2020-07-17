@@ -3,7 +3,7 @@ import ShopPage from "./ShopPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CartPage from "./CartPage";
 import AdminPage from "./AdminPage";
-import newMainPage from "./NewMainPage";
+import NewMainPage from "./NewMainPage";
 import NavbarComponent from "./NewNavbarComponent";
 import AdminPanel from "./AdminPanel";
 import Footer from "./Footer";
@@ -28,7 +28,7 @@ const ComponentsHolder = () => {
       <div className="components-holder">
         <NavbarComponent />
         <Switch>
-          <Route exact path="/" component={newMainPage} />
+          <Route exact path="/" component={NewMainPage} />
           <Route path="/shop" component={ShopPage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/admin" component={AdminPage} />

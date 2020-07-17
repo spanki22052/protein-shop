@@ -130,6 +130,8 @@
 
         .product-image {
           width: 150px;
+          height: 150px;
+          object-fit: contain;
         }
 
         .top-side {
@@ -161,8 +163,11 @@
           font-size: 16px;
           line-height: 20px;
           text-align: center;
+          height: 37px;
 
           color: #000000;
+          width: 100%;
+          overflow: hidden;
         }
 
         h2 {
