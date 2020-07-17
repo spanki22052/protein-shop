@@ -22,158 +22,161 @@ const newMainPage = () => {
       <div className="big-gray-block">
         <h1 className="max-width">Сегодня в трендах:</h1>
 
-        <div className="white-product-box">
-          <div className="top-side">
-            <div className="badge">СКИДКА 10%</div>
+        <div className="white-boxes">
+          <div className="white-product-box">
+            <div className="top-side">
+              <div className="badge">СКИДКА 10%</div>
 
-            <img src="/images/supermarket1.png" alt="supermarket" />
+              <img src="/images/supermarket1.png" alt="supermarket" />
+            </div>
+            <img
+              className="product-image"
+              src="/images/protein2.jpg"
+              alt="protein"
+            />
+            <h1>Whey golden premium 150g</h1>
+            <h2>2.990p</h2>
           </div>
-          <img
-            className="product-image"
-            src="/images/protein2.jpg"
-            alt="protein"
-          />
-          <h1>Whey golden premium 150g</h1>
-          <h2>2.990p</h2>
-        </div>
 
-        <div className="white-product-box">
-          <div className="top-side">
-            <div className="badge">СКИДКА 10%</div>
+          <div className="white-product-box">
+            <div className="top-side">
+              <div className="badge">СКИДКА 10%</div>
 
-            <img src="/images/supermarket1.png" alt="supermarket" />
+              <img src="/images/supermarket1.png" alt="supermarket" />
+            </div>
+            <img
+              className="product-image"
+              src="/images/protein2.jpg"
+              alt="protein"
+            />
+            <h1>Whey golden premium 150g</h1>
+            <h2>2.990p</h2>
           </div>
-          <img
-            className="product-image"
-            src="/images/protein2.jpg"
-            alt="protein"
-          />
-          <h1>Whey golden premium 150g</h1>
-          <h2>2.990p</h2>
-        </div>
 
-        <div className="white-product-box">
-          <div className="top-side">
-            <div className="badge">СКИДКА 10%</div>
+          <div className="white-product-box">
+            <div className="top-side">
+              <div className="badge">СКИДКА 10%</div>
 
-            <img src="/images/supermarket1.png" alt="supermarket" />
+              <img src="/images/supermarket1.png" alt="supermarket" />
+            </div>
+            <img
+              className="product-image"
+              src="/images/protein2.jpg"
+              alt="protein"
+            />
+            <h1>Whey golden premium 150g</h1>
+            <h2>2.990p</h2>
           </div>
-          <img
-            className="product-image"
-            src="/images/protein2.jpg"
-            alt="protein"
-          />
-          <h1>Whey golden premium 150g</h1>
-          <h2>2.990p</h2>
-        </div>
 
-        <div className="white-product-box">
-          <div className="top-side">
-            <div className="badge">СКИДКА 10%</div>
+          <div className="white-product-box">
+            <div className="top-side">
+              <div className="badge">СКИДКА 10%</div>
 
-            <img src="/images/supermarket1.png" alt="supermarket" />
+              <img src="/images/supermarket1.png" alt="supermarket" />
+            </div>
+            <img
+              className="product-image"
+              src="/images/protein2.jpg"
+              alt="protein"
+            />
+            <h1>Whey golden premium 150g</h1>
+            <h2>2.990p</h2>
           </div>
-          <img
-            className="product-image"
-            src="/images/protein2.jpg"
-            alt="protein"
-          />
-          <h1>Whey golden premium 150g</h1>
-          <h2>2.990p</h2>
-        </div>
 
-        <div className="white-product-box">
-          <div className="top-side">
-            <div className="badge">СКИДКА 10%</div>
+          <div className="white-product-box">
+            <div className="top-side">
+              <div className="badge">СКИДКА 10%</div>
 
-            <img src="/images/supermarket1.png" alt="supermarket" />
+              <img src="/images/supermarket1.png" alt="supermarket" />
+            </div>
+            <img
+              className="product-image"
+              src="/images/protein2.jpg"
+              alt="protein"
+            />
+            <h1>Whey golden premium 150g</h1>
+            <h2>2.990p</h2>
           </div>
-          <img
-            className="product-image"
-            src="/images/protein2.jpg"
-            alt="protein"
-          />
-          <h1>Whey golden premium 150g</h1>
-          <h2>2.990p</h2>
         </div>
       </div>
 
       <div className="big-gray-block">
         <h1 className="max-width">Рекомендуем:</h1>
+        <div className="white-boxes">
+          <div className="white-product-box">
+            <div className="top-side">
+              <div className="badge">СКИДКА 10%</div>
 
-        <div className="white-product-box">
-          <div className="top-side">
-            <div className="badge">СКИДКА 10%</div>
-
-            <img src="/images/supermarket1.png" alt="supermarket" />
+              <img src="/images/supermarket1.png" alt="supermarket" />
+            </div>
+            <img
+              className="product-image"
+              src="/images/protein2.jpg"
+              alt="protein"
+            />
+            <h1>Whey golden premium 150g</h1>
+            <h2>2.990p</h2>
           </div>
-          <img
-            className="product-image"
-            src="/images/protein2.jpg"
-            alt="protein"
-          />
-          <h1>Whey golden premium 150g</h1>
-          <h2>2.990p</h2>
-        </div>
 
-        <div className="white-product-box">
-          <div className="top-side">
-            <div className="badge">СКИДКА 10%</div>
+          <div className="white-product-box">
+            <div className="top-side">
+              <div className="badge">СКИДКА 10%</div>
 
-            <img src="/images/supermarket1.png" alt="supermarket" />
+              <img src="/images/supermarket1.png" alt="supermarket" />
+            </div>
+            <img
+              className="product-image"
+              src="/images/protein2.jpg"
+              alt="protein"
+            />
+            <h1>Whey golden premium 150g</h1>
+            <h2>2.990p</h2>
           </div>
-          <img
-            className="product-image"
-            src="/images/protein2.jpg"
-            alt="protein"
-          />
-          <h1>Whey golden premium 150g</h1>
-          <h2>2.990p</h2>
-        </div>
 
-        <div className="white-product-box">
-          <div className="top-side">
-            <div className="badge">СКИДКА 10%</div>
+          <div className="white-product-box">
+            <div className="top-side">
+              <div className="badge">СКИДКА 10%</div>
 
-            <img src="/images/supermarket1.png" alt="supermarket" />
+              <img src="/images/supermarket1.png" alt="supermarket" />
+            </div>
+            <img
+              className="product-image"
+              src="/images/protein2.jpg"
+              alt="protein"
+            />
+            <h1>Whey golden premium 150g</h1>
+            <h2>2.990p</h2>
           </div>
-          <img
-            className="product-image"
-            src="/images/protein2.jpg"
-            alt="protein"
-          />
-          <h1>Whey golden premium 150g</h1>
-          <h2>2.990p</h2>
-        </div>
 
-        <div className="white-product-box">
-          <div className="top-side">
-            <div className="badge">СКИДКА 10%</div>
+          <div className="white-product-box">
+            <div className="top-side">
+              <div className="badge">СКИДКА 10%</div>
 
-            <img src="/images/supermarket1.png" alt="supermarket" />
+              <img src="/images/supermarket1.png" alt="supermarket" />
+            </div>
+            <img
+              className="product-image"
+              src="/images/protein2.jpg"
+              alt="protein"
+            />
+            <h1>Whey golden premium 150g</h1>
+            <h2>2.990p</h2>
           </div>
-          <img
-            className="product-image"
-            src="/images/protein2.jpg"
-            alt="protein"
-          />
-          <h1>Whey golden premium 150g</h1>
-          <h2>2.990p</h2>
-        </div>
 
-        <div className="white-product-box">
-          <div className="top-side">
-            <div className="badge">СКИДКА 10%</div>
+          <div className="white-product-box">
+            <div className="top-side">
+              <div className="badge">СКИДКА 10%</div>
 
-            <img src="/images/supermarket1.png" alt="supermarket" />
+              <img src="/images/supermarket1.png" alt="supermarket" />
+            </div>
+            <img
+              className="product-image"
+              src="/images/protein2.jpg"
+              alt="protein"
+            />
+            <h1>Whey golden premium 150g</h1>
+            <h2>2.990p</h2>
           </div>
-          <img
-            className="product-image"
-            src="/images/protein2.jpg"
-            alt="protein"
-          />
-          <h1>Whey golden premium 150g</h1>
-          <h2>2.990p</h2>
         </div>
       </div>
 
