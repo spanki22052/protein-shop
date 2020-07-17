@@ -1,15 +1,14 @@
 import React from "react";
 import "./navbar.scss";
+import { Link } from "react-router-dom";
 
 const NavbarComponent = () => {
   return (
     <div className="navbar-component">
-      <nav
-        className="navbar navbar-expand-lg navbar-light"
-      >
-        <a className="navbar-brand" href="/">
-          Biomart
-        </a>
+      <nav className="navbar navbar-expand-lg navbar-light">
+        <Link className="navbar-brand link" to="/">
+          BIOMART
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -25,9 +24,8 @@ const NavbarComponent = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item dropdown">
-              <a
+              <Link
                 className="nav-link dropdown-toggle"
-                href="#"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -35,17 +33,16 @@ const NavbarComponent = () => {
                 aria-expanded="false"
               >
                 Магазин
-              </a>
+              </Link>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">
-                  Action
-                </a>
+                <Link className="dropdown-item" to="/shop">
+                  Протеины
+                </Link>
               </div>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <Link
                 className="nav-link dropdown-toggle"
-                href="#"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -53,17 +50,16 @@ const NavbarComponent = () => {
                 aria-expanded="false"
               >
                 Бренды
-              </a>
+              </Link>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">
-                  Action
-                </a>
+                <Link className="dropdown-item" to="/shop">
+                  On
+                </Link>
               </div>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <Link
                 className="nav-link dropdown-toggle"
-                href="#"
                 id="navbarDropdown"
                 role="button"
                 data-toggle="dropdown"
@@ -71,11 +67,11 @@ const NavbarComponent = () => {
                 aria-expanded="false"
               >
                 Здоровье
-              </a>
+              </Link>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">
-                  Action
-                </a>
+                <Link className="dropdown-item" to="/shop">
+                  Кофеины
+                </Link>
               </div>
             </li>
           </ul>
@@ -86,7 +82,10 @@ const NavbarComponent = () => {
               placeholder="Поиск товаров"
               aria-label="Search"
             />
-            <button className="btn btn-outline-light my-2 my-sm-0" type="submit">
+            <button
+              className="btn btn-outline-light my-2 my-sm-0"
+              type="submit"
+            >
               Найти
             </button>
           </form>

@@ -3,6 +3,14 @@
     height: 100px;
     background-color: #299d00;
 
+    .link {
+      color: white !important;
+      text-decoration: none;
+      &:hover {
+        color: white !important;
+      }
+    }
+
     .navbar-brand {
       font-size: 2.5em;
       font-family: "Montserrat", sans-serif;

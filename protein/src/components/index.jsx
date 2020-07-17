@@ -1,9 +1,7 @@
 import React from "react";
-import MainPage from "./MainPage";
 import ShopPage from "./ShopPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CartPage from "./CartPage";
-// import NavbarComponent from "./NavbarComponent";
 import AdminPage from "./AdminPage";
 import newMainPage from "./NewMainPage";
 import NavbarComponent from "./NewNavbarComponent";
