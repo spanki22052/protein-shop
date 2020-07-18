@@ -16,10 +16,13 @@ class AdminPanel extends Component {
       productTitle: "",
       productUrl: "",
       productPrice: "",
+      productDescription: "",
       feedbacks: {},
       numbersList: [],
       popUpHolder: "none",
       currentPopupProduct: {},
+      productBadge: "НЕТ В НАЛИЧИИ",
+      badges: ["НЕТ В НАЛИЧИИ", "ПРЕДЗАКАЗ", "В НАЛИЧИИ", "СКИДКА 10%"],
     };
   }
 
@@ -103,6 +106,7 @@ class AdminPanel extends Component {
   };
 
   sendProductsToDb = (product, products, currentProduct) => {
+    console.log(currentProduct);
     let newProducts = { ...products.products };
     let newProductsList =
       newProducts[currentProduct] !== undefined
@@ -116,7 +120,13 @@ class AdminPanel extends Component {
       products: newProducts,
     });
 
-    this.setState({ productPrice: "", productTitle: "", productUrl: "" });
+    this.setState({
+      productPrice: "",
+      productTitle: "",
+      productUrl: "",
+      productDescription: "",
+      productBadge: "",
+    });
 
     firebase
       .firestore()
@@ -209,6 +219,30 @@ class AdminPanel extends Component {
                 />
               </div>
               <div className="input-block">
+                <p>Описание товара: </p>
+                <input
+                  value={this.state.productDescription}
+                  onChange={(e) =>
+                    this.setState({ productDescription: e.target.value })
+                  }
+                  type="text"
+                />
+              </div>
+              <div className="input-block">
+                <p>Значок на товар: </p>
+                <select
+                  id="selectBox"
+                  onChange={(e) => {
+                    this.setState({ productBadge: e.target.value });
+                  }}
+                  value={this.state.productBadge}
+                >
+                  {this.state.badges.map((el, index) => {
+                    return <option key={index}>{el}</option>;
+                  })}
+                </select>
+              </div>
+              <div className="input-block">
                 <p>URL картинки товара: </p>
                 <input
                   value={this.state.productUrl}
@@ -234,6 +268,8 @@ class AdminPanel extends Component {
                         title: this.state.productTitle,
                         image: this.state.productUrl,
                         price: this.state.productPrice,
+                        productBadge: this.state.productBadge,
+                        productDescription: this.state.productDescription,
                       },
                       this.state.products,
                       this.state.currentProduct

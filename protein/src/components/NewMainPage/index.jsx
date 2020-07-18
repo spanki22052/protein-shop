@@ -8,6 +8,13 @@ function NewMainPage() {
   const [products, setProducts] = useState({});
   var counter = 0;
 
+  const hexObject = {
+    "В НАЛИЧИИ" : "white",
+    "СКИДКА 10%": "#EC2929",
+    "ПРЕДЗАКАЗ": "#265ECB",
+    "НЕТ В НАЛИЧИИ": "#BCBCBC"
+  }
+
   useEffect(() => {
     firebase
       .firestore()
@@ -54,7 +61,7 @@ function NewMainPage() {
                     <div key={index} className="white-product-box">
                       {console.log(el)}
                       <div className="top-side">
-                        <div className="badge">СКИДКА 10%</div>
+                        <div className="badge" style={{ backgroundColor: hexObject[el.productBadge] }}>{el.productBadge}</div>
 
                         <img src="/images/supermarket1.png" alt="supermarket" />
                       </div>
@@ -93,7 +100,7 @@ function NewMainPage() {
                     <div key={index} className="white-product-box">
                       {console.log(el)}
                       <div className="top-side">
-                        <div className="badge">СКИДКА 10%</div>
+                        <div className="badge" style={{ backgroundColor: hexObject[el.productBadge] }}>{el.productBadge}</div>
 
                         <img src="/images/supermarket1.png" alt="supermarket" />
                       </div>
