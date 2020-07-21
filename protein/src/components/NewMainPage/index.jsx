@@ -85,9 +85,6 @@ function NewMainPage() {
         <h1 className="max-width">Рекомендуем:</h1>
 
         <div className="white-boxes">
-          {categories.map((element) => {
-            counter = 0;
-          })}
 
           {categories.map((element) => {
             return (
