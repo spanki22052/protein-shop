@@ -93,11 +93,11 @@ function NewMainPage() {
         </div>
       </div>
 
+      <p style={{ display: 'none' }}>{(counter = 0)}</p>
+
       <div className="big-gray-block">
         <h1 className="max-width">Рекомендуем:</h1>
-
         <div className="white-boxes">
-          {(counter = 0)}
           {categories.map((element) => {
             return (
               products[element].length > 0 &&

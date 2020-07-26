@@ -2,7 +2,20 @@ import React from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
 
-const NavbarComponent = () => {
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { IconButton, withStyles, Badge } from "@material-ui/core";
+import { connect } from "react-redux";
+
+const NavbarComponent = ({ prods }) => {
+  const StyledBadge = withStyles((theme) => ({
+    badge: {
+      right: -3,
+      top: "-5px",
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: "0 4px",
+    },
+  }))(Badge);
+
   return (
     <div className="navbar-component">
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -89,10 +102,30 @@ const NavbarComponent = () => {
               Найти
             </button>
           </form>
+
+          <IconButton
+            className="icon-button"
+            aria-label="cart"
+            style={{ marginTop: "10px" }}
+          >
+            <Link to="/cart">
+              <StyledBadge badgeContent={prods.counter} color="secondary">
+                <ShoppingCartIcon
+                  style={{
+                    marginTop: "-20px",
+                    fill: "#eee",
+                    outline: "none",
+                  }}
+                />
+              </StyledBadge>
+            </Link>
+          </IconButton>
         </div>
       </nav>
     </div>
   );
 };
 
-export default NavbarComponent;
+export default connect((state) => ({
+  prods: state.addItem,
+}))(NavbarComponent);
