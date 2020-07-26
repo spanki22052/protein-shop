@@ -24,7 +24,7 @@ const NavbarComponent = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item dropdown">
-              <Link
+              <span
                 className="nav-link dropdown-toggle"
                 id="navbarDropdown"
                 role="button"
@@ -33,7 +33,7 @@ const NavbarComponent = () => {
                 aria-expanded="false"
               >
                 Магазин
-              </Link>
+              </span>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link className="dropdown-item" to="/shop">
                   Протеины
@@ -41,7 +41,7 @@ const NavbarComponent = () => {
               </div>
             </li>
             <li className="nav-item dropdown">
-              <Link
+              <span
                 className="nav-link dropdown-toggle"
                 id="navbarDropdown"
                 role="button"
@@ -50,7 +50,7 @@ const NavbarComponent = () => {
                 aria-expanded="false"
               >
                 Бренды
-              </Link>
+              </span>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link className="dropdown-item" to="/shop">
                   On
@@ -58,7 +58,7 @@ const NavbarComponent = () => {
               </div>
             </li>
             <li className="nav-item dropdown">
-              <Link
+              <span
                 className="nav-link dropdown-toggle"
                 id="navbarDropdown"
                 role="button"
@@ -67,7 +67,7 @@ const NavbarComponent = () => {
                 aria-expanded="false"
               >
                 Здоровье
-              </Link>
+              </span>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link className="dropdown-item" to="/shop">
                   Кофеины

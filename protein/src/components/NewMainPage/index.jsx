@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./new.scss";
+import { Link } from "react-router-dom";
 
 const firebase = require("firebase");
 
@@ -9,11 +10,11 @@ function NewMainPage() {
   var counter = 0;
 
   const hexObject = {
-    "В НАЛИЧИИ" : "white",
+    "В НАЛИЧИИ": "white",
     "СКИДКА 10%": "#EC2929",
-    "ПРЕДЗАКАЗ": "#265ECB",
-    "НЕТ В НАЛИЧИИ": "#BCBCBC"
-  }
+    ПРЕДЗАКАЗ: "#265ECB",
+    "НЕТ В НАЛИЧИИ": "#BCBCBC",
+  };
 
   useEffect(() => {
     firebase
@@ -59,11 +60,22 @@ function NewMainPage() {
                 return (
                   counter < 6 && (
                     <div key={index} className="white-product-box">
-                      {console.log(el)}
                       <div className="top-side">
-                        <div className="badge" style={{ backgroundColor: hexObject[el.productBadge] }}>{el.productBadge}</div>
+                        <div
+                          className="badge"
+                          style={{
+                            backgroundColor: hexObject[el.productBadge],
+                          }}
+                        >
+                          {el.productBadge}
+                        </div>
 
-                        <img src="/images/supermarket1.png" alt="supermarket" />
+                        <Link to="/shop">
+                          <img
+                            src="/images/supermarket1.png"
+                            alt="supermarket"
+                          />
+                        </Link>
                       </div>
                       <img
                         className="product-image"
@@ -85,7 +97,7 @@ function NewMainPage() {
         <h1 className="max-width">Рекомендуем:</h1>
 
         <div className="white-boxes">
-
+          {(counter = 0)}
           {categories.map((element) => {
             return (
               products[element].length > 0 &&
@@ -95,11 +107,22 @@ function NewMainPage() {
                   counter > 5 &&
                   counter < 11 && (
                     <div key={index} className="white-product-box">
-                      {console.log(el)}
                       <div className="top-side">
-                        <div className="badge" style={{ backgroundColor: hexObject[el.productBadge] }}>{el.productBadge}</div>
+                        <div
+                          className="badge"
+                          style={{
+                            backgroundColor: hexObject[el.productBadge],
+                          }}
+                        >
+                          {el.productBadge}
+                        </div>
 
-                        <img src="/images/supermarket1.png" alt="supermarket" />
+                        <Link to="/shop">
+                          <img
+                            src="/images/supermarket1.png"
+                            alt="supermarket"
+                          />
+                        </Link>
                       </div>
                       <img
                         className="product-image"

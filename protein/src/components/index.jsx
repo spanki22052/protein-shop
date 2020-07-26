@@ -33,8 +33,8 @@ const ComponentsHolder = () => {
           <Route path="/cart" component={CartPage} />
           <Route path="/admin" component={AdminPage} />
           <Route path="/adminpanel" component={AdminPanel} />
+          <Route path={["/", "shop"]} component={Footer} />
         </Switch>
-        <Footer />
       </div>
     </Router>
   );
