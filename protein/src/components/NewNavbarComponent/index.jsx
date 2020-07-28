@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
 
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { IconButton, withStyles, Badge } from "@material-ui/core";
 import { connect } from "react-redux";
+const firebase = require("firebase");
 
-const NavbarComponent = ({ prods }) => {
+const NavbarComponent = ({ prods, sendCategoriesObject }) => {
   const StyledBadge = withStyles((theme) => ({
     badge: {
       right: -3,
@@ -15,6 +16,18 @@ const NavbarComponent = ({ prods }) => {
       padding: "0 4px",
     },
   }))(Badge);
+
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("products")
+      .doc("categories")
+      .get()
+      .then(async (info) => {
+        (await info.data()) !== undefined &&
+          sendCategoriesObject(info.data().category);
+      });
+  }, []);
 
   return (
     <div className="navbar-component">
@@ -126,6 +139,23 @@ const NavbarComponent = ({ prods }) => {
   );
 };
 
-export default connect((state) => ({
-  prods: state.addItem,
-}))(NavbarComponent);
+export default connect(
+  (state) => ({
+    prods: state.addItem,
+  }),
+  (dispatch) => ({
+    sendCategoriesObject: (payload) => {
+      dispatch({
+        type: "ADD_CATEGORIES",
+        payload: payload,
+      });
+    },
+
+    sendProductsObject: (payload) => {
+      dispatch({
+        type: "ADD_PRODUCTS":
+        payload: payload
+      })
+    }
+  })
+)(NavbarComponent);

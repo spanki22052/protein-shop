@@ -82,7 +82,9 @@ function NewMainPage() {
                         src={el.image}
                         alt="protein"
                       />
-                      <h1>{el.title}</h1>
+                      <h1>
+                          {el.title}
+                      </h1>
                       <h2>{el.price}p</h2>
                     </div>
                   )
@@ -93,7 +95,7 @@ function NewMainPage() {
         </div>
       </div>
 
-      <p style={{ display: 'none' }}>{(counter = 0)}</p>
+      <p style={{ display: "none" }}>{(counter = 0)}</p>
 
       <div className="big-gray-block">
         <h1 className="max-width">Рекомендуем:</h1>

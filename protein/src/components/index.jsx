@@ -7,6 +7,7 @@ import NewMainPage from "./NewMainPage";
 import NavbarComponent from "./NewNavbarComponent";
 import AdminPanel from "./AdminPanel";
 import Footer from "./Footer";
+import ProductPage from "./ProductPage";
 const firebase = require("firebase");
 
 var firebaseConfig = {
@@ -32,6 +33,7 @@ const ComponentsHolder = () => {
           <Route path="/shop" component={ShopPage} />
           <Route path="/cart" component={CartPage} />
           <Route path="/admin" component={AdminPage} />
+          <Route path="/product" component={ProductPage} />
           <Route path="/adminpanel" component={AdminPanel} />
           <Route path={["/", "shop"]} component={Footer} />
         </Switch>
