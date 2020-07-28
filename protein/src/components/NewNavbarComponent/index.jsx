@@ -153,7 +153,7 @@ export default connect(
 
     sendProductsObject: (payload) => {
       dispatch({
-        type: "ADD_PRODUCTS":
+        type: "ADD_PRODUCTS",
         payload: payload
       })
     }
