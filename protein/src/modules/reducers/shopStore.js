@@ -1,6 +1,6 @@
 var initialState = {
   categories: [],
-  products: {},
+  products: [],
 };
 
 export default function shopStore(state = initialState, action) {
@@ -11,7 +11,14 @@ export default function shopStore(state = initialState, action) {
       return categoriesState;
     case "ADD_PRODUCTS":
       let productsState = { ...state };
+      let allProducts = [];
       productsState.products = action.payload;
+      for (let key in action.payload) {
+        for (let element in action.payload[key]) {
+          allProducts.push(action.payload[key][element]);
+        }
+      }
+      productsState.products = allProducts;
       return productsState;
     default:
       return state;

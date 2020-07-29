@@ -1,13 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./navbar.scss";
 import { Link } from "react-router-dom";
 
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { IconButton, withStyles, Badge } from "@material-ui/core";
 import { connect } from "react-redux";
+
 const firebase = require("firebase");
 
-const NavbarComponent = ({ prods, sendCategoriesObject }) => {
+const NavbarComponent = ({
+  prods,
+  sendCategoriesObject,
+  sendProductsObject,
+  allItems,
+}) => {
+  const [searchInput, setSearch] = useState("");
+  const [searchList, setSearcList] = useState(
+    allItems.products.filter((element) =>
+      element.title.toLowerCase().includes(searchInput)
+    )
+  );
+
   const StyledBadge = withStyles((theme) => ({
     badge: {
       right: -3,
@@ -27,7 +40,28 @@ const NavbarComponent = ({ prods, sendCategoriesObject }) => {
         (await info.data()) !== undefined &&
           sendCategoriesObject(info.data().category);
       });
-  }, []);
+
+    firebase
+      .firestore()
+      .collection("products")
+      .doc("productsObject")
+      .get()
+      .then(async (info) => {
+        (await info.data()) !== undefined &&
+          sendProductsObject(info.data().products);
+      });
+  }, [sendProductsObject, sendCategoriesObject]);
+
+  const updateSearchList = () => {
+    let newList = allItems.products.filter((element) =>
+      element.title.toLowerCase().includes(searchInput)
+    );
+
+    setSearcList(newList);
+
+  };
+
+  console.log(searchList)
 
   return (
     <div className="navbar-component">
@@ -101,20 +135,22 @@ const NavbarComponent = ({ prods, sendCategoriesObject }) => {
               </div>
             </li>
           </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Поиск товаров"
-              aria-label="Search"
-            />
-            <button
-              className="btn btn-outline-light my-2 my-sm-0"
-              type="submit"
-            >
-              Найти
-            </button>
-          </form>
+          <input
+            className="form-control mr-sm-2"
+            style={{ width: "220px" }}
+            type="search"
+            placeholder="Поиск товаров"
+            aria-label="Search"
+            value={searchInput}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
+          <button
+            className="btn btn-outline-light my-2 my-sm-0"
+            onClick={updateSearchList}
+          >
+            Найти
+          </button>
 
           <IconButton
             className="icon-button"
@@ -142,6 +178,7 @@ const NavbarComponent = ({ prods, sendCategoriesObject }) => {
 export default connect(
   (state) => ({
     prods: state.addItem,
+    allItems: state.shopStore,
   }),
   (dispatch) => ({
     sendCategoriesObject: (payload) => {
@@ -154,8 +191,8 @@ export default connect(
     sendProductsObject: (payload) => {
       dispatch({
         type: "ADD_PRODUCTS",
-        payload: payload
-      })
-    }
+        payload: payload,
+      });
+    },
   })
 )(NavbarComponent);
