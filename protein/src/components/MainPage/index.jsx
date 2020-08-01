@@ -1,6 +1,7 @@
 import React from "react";
 import "./main.scss";
 import { Link } from "react-router-dom";
+import Footer from "../Footer";
 
 const MainPage = () => {
   const company = "Dagestan";
@@ -31,9 +32,7 @@ const MainPage = () => {
           alt="proteinsadvertisement"
         />
         <div className="text-block">
-          <h2>
-            BioMart - спортивное питание для всей семьи!
-          </h2>
+          <h2>BioMart - спортивное питание для всей семьи!</h2>
           <Link to="/shop">
             <button className="go-to-products"> Перейти к товарам </button>
           </Link>

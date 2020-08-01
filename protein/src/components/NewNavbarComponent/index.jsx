@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { IconButton, withStyles, Badge } from "@material-ui/core";
 import { connect } from "react-redux";
+import ProductPopup from "./ProductPopup";
 
 const firebase = require("firebase");
 
@@ -59,12 +60,14 @@ const NavbarComponent = ({
 
     setSearcList(newList);
 
+    newList.length > 0 && setDisplay('block')
   };
 
-  console.log(searchList)
+  const [displaySet, setDisplay] = useState("none")
 
   return (
     <div className="navbar-component">
+      <ProductPopup displaySet={displaySet} displaySetFunction={e => setDisplay(e)} productsList={searchList} />
       <nav className="navbar navbar-expand-lg navbar-light">
         <Link className="navbar-brand link" to="/">
           BIOMART

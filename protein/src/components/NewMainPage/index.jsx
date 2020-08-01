@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./new.scss";
+import Footer from "../Footer";
 import { Link } from "react-router-dom";
 
 const firebase = require("firebase");
@@ -82,9 +83,7 @@ function NewMainPage() {
                         src={el.image}
                         alt="protein"
                       />
-                      <h1>
-                          {el.title}
-                      </h1>
+                      <h1>{el.title}</h1>
                       <h2>{el.price}p</h2>
                     </div>
                   )
@@ -147,6 +146,7 @@ function NewMainPage() {
           Для постоянных покупателей магази будет задействована система скидок.
         </h1>
       </div>
+      <Footer />
     </div>
   );
 }
