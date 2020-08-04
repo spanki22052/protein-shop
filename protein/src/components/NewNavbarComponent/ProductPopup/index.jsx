@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "./popup.scss";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+
+const borderStyling = {
+  borderBottom: "1px solid black",
+};
+
+const noBorderStyling = {
+  border: "none",
+};
 
 const ProductPopup = ({
   productsList,
@@ -10,7 +18,6 @@ const ProductPopup = ({
   prods,
   sendProduct,
 }) => {
-  console.log(prods);
 
   const addNewProduct = (title, price, image) => {
     let payload = {};
@@ -33,29 +40,40 @@ const ProductPopup = ({
 
   return (
     <div className="product-popup" style={{ display: displaySet }}>
-      {productsList.length > 0 &&
-        productsList.map((element, index) => {
-          return (
-            <div key={index} className="product-block">
-              <Link to="/shop">
-                <img
-                  src={element.image}
-                  onClick={() => displaySetFunction("none")}
-                  alt=""
-                />
-              </Link>
-              <h1>{element.title}</h1>
-              <h2>{element.productDescription}</h2>
-              <button
-                onClick={() =>
-                  addNewProduct(element.title, element.price, element.image)
+      <div className="product-popup__holder">
+        <img className="close-svg" src="/svg/close.svg" />
+        {productsList.length > 0 &&
+          productsList.map((element, index) => {
+            return (
+              <div
+                style={
+                  index == productsList.length - 1
+                    ? noBorderStyling
+                    : borderStyling
                 }
+                key={index}
+                className="product-block"
               >
-                Добавить в корзину
-              </button>
-            </div>
-          );
-        })}
+                <Link to="/shop">
+                  <img
+                    src={element.image}
+                    onClick={() => displaySetFunction("none")}
+                    alt=""
+                  />
+                </Link>
+                <h1>{element.title}</h1>
+                <h2>{element.productDescription}</h2>
+                <button
+                  onClick={() =>
+                    addNewProduct(element.title, element.price, element.image)
+                  }
+                >
+                  Добавить в корзину
+                </button>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };
