@@ -55,19 +55,27 @@ const NavbarComponent = ({
 
   const updateSearchList = () => {
     let newList = allItems.products.filter((element) =>
-      element.title.toLowerCase().includes(searchInput)
+      element.title.toLowerCase().includes(searchInput.toLowerCase())
     );
 
     setSearcList(newList);
 
-    newList.length > 0 && setDisplay('block')
+    newList.length > 0 && setDisplay("block");
   };
 
-  const [displaySet, setDisplay] = useState("none")
+  const [displaySet, setDisplay] = useState("none");
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+  };
 
   return (
     <div className="navbar-component">
-      <ProductPopup displaySet={displaySet} displaySetFunction={e => setDisplay(e)} productsList={searchList} />
+      <ProductPopup
+        displaySet={displaySet}
+        displaySetFunction={(e) => setDisplay(e)}
+        productsList={searchList}
+      />
       <nav className="navbar navbar-expand-lg navbar-light">
         <Link className="navbar-brand link" to="/">
           BIOMART
@@ -138,22 +146,25 @@ const NavbarComponent = ({
               </div>
             </li>
           </ul>
-          <input
-            className="form-control mr-sm-2"
-            style={{ width: "220px" }}
-            type="search"
-            placeholder="Поиск товаров"
-            aria-label="Search"
-            value={searchInput}
-            onChange={(e) => setSearch(e.target.value)}
-          />
 
-          <button
-            className="btn btn-outline-light my-2 my-sm-0"
-            onClick={updateSearchList}
-          >
-            Найти
-          </button>
+          <form class="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
+            <input
+              className="form-control mr-sm-2"
+              style={{ width: "220px" }}
+              placeholder="Поиск товаров"
+              type="text"
+              value={searchInput}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+
+            <button
+              className="btn btn-outline-light my-2 my-sm-0"
+              onClick={updateSearchList}
+              type="submit"
+            >
+              Найти
+            </button>
+          </form>
 
           <IconButton
             className="icon-button"

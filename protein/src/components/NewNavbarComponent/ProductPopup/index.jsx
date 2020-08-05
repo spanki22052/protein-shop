@@ -18,7 +18,6 @@ const ProductPopup = ({
   prods,
   sendProduct,
 }) => {
-
   const addNewProduct = (title, price, image) => {
     let payload = {};
 
@@ -41,13 +40,18 @@ const ProductPopup = ({
   return (
     <div className="product-popup" style={{ display: displaySet }}>
       <div className="product-popup__holder">
-        <img className="close-svg" src="/svg/close.svg" />
+        <img
+          className="close-svg"
+          src="/svg/close.svg"
+          onClick={() => displaySetFunction("none")}
+          alt="close-svg"
+        />
         {productsList.length > 0 &&
           productsList.map((element, index) => {
             return (
               <div
                 style={
-                  index == productsList.length - 1
+                  index === productsList.length - 1
                     ? noBorderStyling
                     : borderStyling
                 }
