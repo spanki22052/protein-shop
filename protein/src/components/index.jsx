@@ -7,7 +7,6 @@ import NewMainPage from "./NewMainPage";
 import NavbarComponent from "./NewNavbarComponent";
 import AdminPanel from "./AdminPanel";
 import ProductPage from "./ProductPage";
-import "./componentsHolder.scss";
 const firebase = require("firebase");
 
 var firebaseConfig = {
@@ -26,7 +25,7 @@ firebase.analytics();
 const ComponentsHolder = () => {
 	return (
 		<Router>
-			<div className="components-holder">
+			<div>
 				<NavbarComponent />
 				<Switch>
 					<Route exact path="/" component={NewMainPage} />

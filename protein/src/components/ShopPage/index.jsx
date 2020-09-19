@@ -135,7 +135,14 @@ class ShopPage extends Component {
 										)
 									);
 								})}
-							<h2 onClick={() => this.changeFilter("all")}>Показать все...</h2>
+							<h2 id='all' className={"" + (this.state.active === 'all' ? "active" : "")}
+								onClick={() => {
+									this.setState({
+										active: 'all'
+									});
+									this.changeFilter("all")
+								}}
+							>Показать все...</h2>
 						</div>
 						<div className="all-products">
 							<h1>Все результаты</h1>

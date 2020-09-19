@@ -44,6 +44,9 @@
 						.product-block {
 							margin: auto !important;
 							float: left !important;
+							&:hover {
+								background-color: black;
+							}
 						}
 					}
 				}
@@ -224,6 +227,16 @@
 				}
 			}
 		}
+	}
+}
+
+body {
+	::-webkit-scrollbar {
+		background: #ffffff;
+		width: 5px;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: #299d00;
 	}
 }
 
