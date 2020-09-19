@@ -44,9 +44,6 @@
 						.product-block {
 							margin: auto !important;
 							float: left !important;
-							&:hover {
-								background-color: black;
-							}
 						}
 					}
 				}
@@ -93,8 +90,13 @@
 					.product-block {
 						width: 180px;
 						margin-left: 50px;
+						transition: all 0.2s linear;
+						&:hover {
+							box-shadow: 0px 2px 5px 1px rgba(41, 157, 0, 0.2);
+							transform: scale(1.1);
+						}
 						img {
-							width: 200px;
+							width: 170px;
 							height: 200px;
 							display: block;
 							margin: auto;
