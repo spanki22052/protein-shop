@@ -10,144 +10,144 @@ import ProductPopup from "./ProductPopup";
 const firebase = require("firebase");
 
 const NavbarComponent = ({
-  prods,
-  sendCategoriesObject,
-  sendProductsObject,
-  allItems,
+	prods,
+	sendCategoriesObject,
+	sendProductsObject,
+	allItems,
 }) => {
-  const [searchInput, setSearch] = useState("");
-  const [searchList, setSearcList] = useState(
-    allItems.products.filter((element) =>
-      element.title.toLowerCase().includes(searchInput)
-    )
-  );
+	const [searchInput, setSearch] = useState("");
+	const [searchList, setSearcList] = useState(
+		allItems.products.filter((element) =>
+			element.title.toLowerCase().includes(searchInput)
+		)
+	);
 
-  const StyledBadge = withStyles((theme) => ({
-    badge: {
-      right: -3,
-      top: "-5px",
-      border: `2px solid ${theme.palette.background.paper}`,
-      padding: "0 4px",
-    },
-  }))(Badge);
+	const StyledBadge = withStyles((theme) => ({
+		badge: {
+			right: -3,
+			top: "-5px",
+			border: `2px solid ${theme.palette.background.paper}`,
+			padding: "0 4px",
+		},
+	}))(Badge);
 
-  useEffect(() => {
-    firebase
-      .firestore()
-      .collection("products")
-      .doc("categories")
-      .get()
-      .then(async (info) => {
-        (await info.data()) !== undefined &&
-          sendCategoriesObject(info.data().category);
-      });
+	useEffect(() => {
+		firebase
+			.firestore()
+			.collection("products")
+			.doc("categories")
+			.get()
+			.then(async (info) => {
+				(await info.data()) !== undefined &&
+					sendCategoriesObject(info.data().category);
+			});
 
-    firebase
-      .firestore()
-      .collection("products")
-      .doc("productsObject")
-      .get()
-      .then(async (info) => {
-        (await info.data()) !== undefined &&
-          sendProductsObject(info.data().products);
-      });
-  }, [sendProductsObject, sendCategoriesObject]);
+		firebase
+			.firestore()
+			.collection("products")
+			.doc("productsObject")
+			.get()
+			.then(async (info) => {
+				(await info.data()) !== undefined &&
+					sendProductsObject(info.data().products);
+			});
+	}, [sendProductsObject, sendCategoriesObject]);
 
-  const updateSearchList = () => {
-    let newList = allItems.products.filter((element) =>
-      element.title.toLowerCase().includes(searchInput.toLowerCase())
-    );
+	const updateSearchList = () => {
+		let newList = allItems.products.filter((element) =>
+			element.title.toLowerCase().includes(searchInput.toLowerCase())
+		);
 
-    setSearcList(newList);
+		setSearcList(newList);
 
-    newList.length > 0 && setDisplay("block");
-  };
+		newList.length > 0 && setDisplay("block");
+	};
 
-  const [displaySet, setDisplay] = useState("none");
+	const [displaySet, setDisplay] = useState("none");
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-  };
+	const handleSubmit = (evt) => {
+		evt.preventDefault();
+	};
 
-  return (
-    <div className="navbar-component">
-      <ProductPopup
-        displaySet={displaySet}
-        displaySetFunction={(e) => setDisplay(e)}
-        productsList={searchList}
-      />
-      <nav className="navbar navbar-expand-lg navbar-light">
-        <Link className="navbar-brand link" to="/">
-          BIOMART
+	return (
+		<div className="navbar-component">
+			<ProductPopup
+				displaySet={displaySet}
+				displaySetFunction={(e) => setDisplay(e)}
+				productsList={searchList}
+			/>
+			<nav className="navbar navbar-expand-lg navbar-light">
+				<Link className="navbar-brand link" to="/">
+					BIOMART
         </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+				<button
+					className="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span className="navbar-toggler-icon"></span>
+				</button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item dropdown">
-              <span
-                className="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Магазин
+				<div className="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul className="navbar-nav mr-auto">
+						<li className="nav-item dropdown">
+							<span
+								className="nav-link dropdown-toggle"
+								id="navbarDropdown"
+								role="button"
+								data-toggle="dropdown"
+								aria-haspopup="true"
+								aria-expanded="false"
+							>
+								Магазин
               </span>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item" to="/shop">
-                  Протеины
+							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<Link className="dropdown-item" to="/shop">
+									Протеины
                 </Link>
-              </div>
-            </li>
-            <li className="nav-item dropdown">
-              <span
-                className="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Бренды
+							</div>
+						</li>
+						<li className="nav-item dropdown">
+							<span
+								className="nav-link dropdown-toggle"
+								id="navbarDropdown"
+								role="button"
+								data-toggle="dropdown"
+								aria-haspopup="true"
+								aria-expanded="false"
+							>
+								Бренды
               </span>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item" to="/shop">
-                  On
+							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<Link className="dropdown-item" to="/shop">
+									On
                 </Link>
-              </div>
-            </li>
-            <li className="nav-item dropdown">
-              <span
-                className="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Здоровье
+							</div>
+						</li>
+						<li className="nav-item dropdown">
+							<span
+								className="nav-link dropdown-toggle"
+								id="navbarDropdown"
+								role="button"
+								data-toggle="dropdown"
+								aria-haspopup="true"
+								aria-expanded="false"
+							>
+								Здоровье
               </span>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link className="dropdown-item" to="/shop">
-                  Кофеины
+							<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<Link className="dropdown-item" to="/shop">
+									Кофеины
                 </Link>
-              </div>
-            </li>
-          </ul>
+							</div>
+						</li>
+					</ul>
 
-          <form class="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
+					{/* <form class="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
             <input
               className="form-control mr-sm-2"
               style={{ width: "220px" }}
@@ -164,49 +164,49 @@ const NavbarComponent = ({
             >
               Найти
             </button>
-          </form>
+          </form> */}
 
-          <IconButton
-            className="icon-button"
-            aria-label="cart"
-            style={{ marginTop: "10px" }}
-          >
-            <Link to="/cart">
-              <StyledBadge badgeContent={prods.counter} color="secondary">
-                <ShoppingCartIcon
-                  style={{
-                    marginTop: "-20px",
-                    fill: "#eee",
-                    outline: "none",
-                  }}
-                />
-              </StyledBadge>
-            </Link>
-          </IconButton>
-        </div>
-      </nav>
-    </div>
-  );
+					<IconButton
+						className="icon-button"
+						aria-label="cart"
+						style={{ marginTop: "10px" }}
+					>
+						<Link to="/cart">
+							<StyledBadge badgeContent={prods.counter} color="secondary">
+								<ShoppingCartIcon
+									style={{
+										marginTop: "-20px",
+										fill: "#eee",
+										outline: "none",
+									}}
+								/>
+							</StyledBadge>
+						</Link>
+					</IconButton>
+				</div>
+			</nav>
+		</div>
+	);
 };
 
 export default connect(
-  (state) => ({
-    prods: state.addItem,
-    allItems: state.shopStore,
-  }),
-  (dispatch) => ({
-    sendCategoriesObject: (payload) => {
-      dispatch({
-        type: "ADD_CATEGORIES",
-        payload: payload,
-      });
-    },
+	(state) => ({
+		prods: state.addItem,
+		allItems: state.shopStore,
+	}),
+	(dispatch) => ({
+		sendCategoriesObject: (payload) => {
+			dispatch({
+				type: "ADD_CATEGORIES",
+				payload: payload,
+			});
+		},
 
-    sendProductsObject: (payload) => {
-      dispatch({
-        type: "ADD_PRODUCTS",
-        payload: payload,
-      });
-    },
-  })
+		sendProductsObject: (payload) => {
+			dispatch({
+				type: "ADD_PRODUCTS",
+				payload: payload,
+			});
+		},
+	})
 )(NavbarComponent);
