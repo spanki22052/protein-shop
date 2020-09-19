@@ -8,12 +8,12 @@ import { BrowserRouter as Router } from "react-router-dom";
 import store from "./modules/store";
 
 ReactDOM.render(
-  <Router>
-    <Provider store={store}>
-      <ComponentsHolder />
-    </Provider>
-  </Router>,
-  document.getElementById("root")
+	<Router>
+		<Provider store={store}>
+			<ComponentsHolder />
+		</Provider>
+	</Router>,
+	document.getElementById("root")
 );
 
 serviceWorker.unregister();
