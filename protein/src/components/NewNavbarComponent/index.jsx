@@ -53,21 +53,9 @@ const NavbarComponent = ({
 			});
 	}, [sendProductsObject, sendCategoriesObject]);
 
-	const updateSearchList = () => {
-		let newList = allItems.products.filter((element) =>
-			element.title.toLowerCase().includes(searchInput.toLowerCase())
-		);
-
-		setSearcList(newList);
-
-		newList.length > 0 && setDisplay("block");
-	};
 
 	const [displaySet, setDisplay] = useState("none");
 
-	const handleSubmit = (evt) => {
-		evt.preventDefault();
-	};
 
 	return (
 		<div className="navbar-component">

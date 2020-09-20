@@ -13,7 +13,6 @@ const ProductPage = ({ shopStore }) => {
       (el) => el.productEngl === currentUrl && setProd(el)
     );
   });
-  console.log(currentProduct);
 
   return (
     <>
