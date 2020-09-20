@@ -71,11 +71,6 @@
 	.product-info {
 		display: flex;
 		flex-direction: column;
-		width: 50%;
-
-		@media (max-width: 800px) {
-			width: 400px;
-		}
 
 		.product-title {
 			font-family: "Montserrat";

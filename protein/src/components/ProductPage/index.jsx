@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./product.scss";
 import { connect } from "react-redux";
+import Footer from "../Footer";
 
 const ProductPage = ({
   shopStore,
@@ -127,6 +128,10 @@ const ProductPage = ({
           </div>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <Footer />
     </>
   );
 };
