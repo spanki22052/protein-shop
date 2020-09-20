@@ -18,6 +18,7 @@ class AdminPanel extends Component {
       productPrice: "",
       productDescription: "",
       feedbacks: {},
+      productEngl: "",
       numbersList: [],
       popUpHolder: "none",
       currentPopupProduct: {},
@@ -126,6 +127,7 @@ class AdminPanel extends Component {
       productUrl: "",
       productDescription: "",
       productBadge: "",
+      productEngl: "",
     });
 
     firebase
@@ -229,6 +231,16 @@ class AdminPanel extends Component {
                 />
               </div>
               <div className="input-block">
+                <p>Товар на англ: </p>
+                <input
+                  value={this.state.productEngl}
+                  onChange={(e) =>
+                    this.setState({ productEngl: e.target.value })
+                  }
+                  type="text"
+                />
+              </div>
+              <div className="input-block">
                 <p>Значок на товар: </p>
                 <select
                   id="selectBox"
@@ -270,6 +282,7 @@ class AdminPanel extends Component {
                         price: this.state.productPrice,
                         productBadge: this.state.productBadge,
                         productDescription: this.state.productDescription,
+                        productEngl: this.state.productEngl,
                       },
                       this.state.products,
                       this.state.currentProduct
