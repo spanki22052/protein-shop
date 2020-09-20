@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./shop.scss";
 import { connect } from "react-redux";
+import { Table } from "react-bootstrap";
 
 const firebase = require("firebase");
 
@@ -126,7 +127,8 @@ class ShopPage extends Component {
                           this.changeFilter(element);
                           this.setState({
                             active: index,
-                            choosedCategory: element[0].toUpperCase() + element.substring(1),
+                            choosedCategory:
+                              element[0].toUpperCase() + element.substring(1),
                           });
                         }}
                         className={
@@ -143,8 +145,8 @@ class ShopPage extends Component {
                 className={"" + (this.state.active === "all" ? "active" : "")}
                 onClick={() => {
                   this.setState({
-					active: "all",
-					choosedCategory: "Показать все"
+                    active: "all",
+                    choosedCategory: "Показать все	",
                   });
                   this.changeFilter("all");
                 }}
