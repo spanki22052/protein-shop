@@ -198,7 +198,15 @@ class ShopPage extends Component {
                       this.state.products[element] !== undefined &&
                       this.state.products[element].map((el, index) => {
                         return (
-                          <div key={index} className="product-block">
+                          <div
+                            key={index}
+                            onClick={() =>
+                              this.props.history.push(
+                                `/product/${el.productEngl}`
+                              )
+                            }
+                            className="product-block"
+                          >
                             {this.state.isAdmin === true && (
                               <button
                                 onClick={() =>
