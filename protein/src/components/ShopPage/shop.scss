@@ -69,7 +69,8 @@
 					.product-blocks {
 						margin: auto !important;
 						.product-block {
-							margin: auto !important;
+							margin: 20px auto 0 auto !important;
+							padding: 5px;
 							float: none !important;
 						}
 					}
@@ -88,15 +89,16 @@
 					align-items: center;
 					flex-wrap: wrap;
 					.product-block {
+						margin-bottom: 50px;
 						width: 180px;
+						height: 300px;
+						margin-left: 50px;
 						transition: all 0.2s linear;
-						
-						display: table;
-						// &:hover {
-						// 	box-shadow: 0px 2px 5px 1px rgba(41, 157, 0, 0.2);
-						// 	transform: scale(1.1);
-						// 	z-index: 3;
-						// }
+						&:hover {
+							box-shadow: 0px 2px 5px 1px rgba(41, 157, 0, 0.2);
+							transform: scale(1.1);
+							z-index: 3;
+						}
 						img {
 							width: 170px;
 							height: 200px;
@@ -186,17 +188,11 @@
 				width: 30%;
 				max-width: 310px;
 				min-width: 279px;
-				height: auto;
-				border-right: 1px solid #4c4c4c;
-				// background: #ffffff;
-				// box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-				// border-radius: 10px;
-				// overflow: auto;
-
-				@media (max-width: 600px) {
-					border: 0;
-					border-bottom: 1px solid #4c4c4c;
-				}
+				height: 300px;
+				background: #ffffff;
+				box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+				border-radius: 10px;
+				overflow: auto;
 
 				h1 {
 					font-family: "Montserrat", sans-serif;
