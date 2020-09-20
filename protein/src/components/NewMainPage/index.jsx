@@ -88,7 +88,9 @@ function NewMainPage() {
                         src={el.image}
                         alt="protein"
                       />
-                      <h1>{el.title}</h1>
+                      <Link to={`/product/${el.productEngl}`}>
+                        <h1>{el.title}</h1>
+                      </Link>
                       <h2>{el.price}p</h2>
                     </div>
                   )
@@ -140,7 +142,9 @@ function NewMainPage() {
                         src={el.image}
                         alt="protein"
                       />
-                      <h1>{el.title}</h1>
+                      <Link to={`/product/${el.productEngl}`}>
+                        <h1>{el.title}</h1>
+                      </Link>
                       <h2>{el.price}p</h2>
                     </div>
                   )

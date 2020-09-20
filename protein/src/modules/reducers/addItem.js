@@ -6,7 +6,7 @@ export default function addItem(state = initialState, action) {
       let whatToReturn = { ...state };
 
       whatToReturn[action.payload.title] = action.payload;
-      whatToReturn.counter += 1;
+      whatToReturn.counter += action.payload.amountInput;
       return whatToReturn;
     case "REMOVE_PRODUCT":
       let newReturnState = { ...state };

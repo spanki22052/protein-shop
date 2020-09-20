@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./shop.scss";
 import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 const firebase = require("firebase");
 
 class ShopPage extends Component {
@@ -82,12 +82,14 @@ class ShopPage extends Component {
           price: price,
           image: image,
           amount: 1,
+          amountInput: 1,
         })
       : (payload = {
           title: title,
           price: price,
           image: image,
           amount: this.props.prods[title].amount + 1,
+          amountInput: 1,
         });
     this.props.sendProduct(payload);
     this.props.items.includes(title) === false &&
@@ -162,15 +164,7 @@ class ShopPage extends Component {
                   this.state.products[this.state.productsFilter].map(
                     (el, index) => {
                       return (
-                        <div
-                          key={index}
-                          onClick={() =>
-                            this.props.history.push(
-                              `/product/${el.productEngl}`
-                            )
-                          }
-                          className="product-block"
-                        >
+                        <div key={index} className="product-block">
                           {this.state.isAdmin === true && (
                             <button
                               onClick={() =>
@@ -192,7 +186,10 @@ class ShopPage extends Component {
                           >
                             Добавить в корзину
                           </button>
-                          <h1>{el.title}</h1>
+
+                          <Link to={`/product/${el.productEngl}`}>
+                            <h1>{el.title}</h1>
+                          </Link>
                           <h2>Цена: {el.price}р</h2>
                         </div>
                       );
@@ -206,15 +203,7 @@ class ShopPage extends Component {
                       this.state.products[element] !== undefined &&
                       this.state.products[element].map((el, index) => {
                         return (
-                          <div
-                            key={index}
-                            onClick={() =>
-                              this.props.history.push(
-                                `/product/${el.productEngl}`
-                              )
-                            }
-                            className="product-block"
-                          >
+                          <div key={index} className="product-block">
                             {this.state.isAdmin === true && (
                               <button
                                 onClick={() =>
@@ -236,7 +225,9 @@ class ShopPage extends Component {
                             >
                               Добавить в корзину
                             </button>
-                            <h1>{el.title}</h1>
+                            <Link to={`/product/${el.productEngl}`}>
+                              <h1>{el.title}</h1>
+                            </Link>
                             <h2>Цена: {el.price}р</h2>
                           </div>
                         );

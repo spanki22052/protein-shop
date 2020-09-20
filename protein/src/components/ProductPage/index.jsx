@@ -35,15 +35,18 @@ const ProductPage = ({
           title: title,
           price: price,
           image: image,
-          amount: 1,
+          amountInput: parseInt(amountInput),
+          amount: parseInt(amountInput),
         })
       : (payload = {
           title: title,
           price: price,
           image: image,
-          amount: prods[title].amount + 1,
+          amountInput: parseInt(amountInput),
+          amount: prods[title].amount + parseInt(amountInput),
         });
     sendProduct(payload);
+    setAmount("1");
     items.includes(title) === false && sendProductToList(title);
   };
 
