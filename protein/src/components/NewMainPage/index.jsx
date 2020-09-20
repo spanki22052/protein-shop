@@ -54,49 +54,49 @@ function NewMainPage() {
 			<div className="big-gray-block">
 				<h1 className="max-width">Сегодня в трендах:</h1>
 				<div className="white-boxes">
-					<HorizontalScroll reverseScroll={false} style={{
+					{/* <HorizontalScroll reverseScroll={false} style={{
 						width: '1400px',
 						margin: '0 auto'
-					}}>
-						{categories.map((element) => {
-							return (
-								products[element].length > 0 &&
-								products[element].map((el, index) => {
-									counter += 1;
-									return (
-										counter < 6 && (
-											<div key={index} className="white-product-box">
-												<div className="top-side">
-													<div
-														className="badge"
-														style={{
-															backgroundColor: hexObject[el.productBadge],
-														}}
-													>
-														{el.productBadge}
-													</div>
-
-													<Link to="/shop">
-														<img
-															src="/images/supermarket1.png"
-															alt="supermarket"
-														/>
-													</Link>
+					}}> */}
+					{categories.map((element) => {
+						return (
+							products[element].length > 0 &&
+							products[element].map((el, index) => {
+								counter += 1;
+								return (
+									counter < 6 && (
+										<div key={index} className="white-product-box">
+											<div className="top-side">
+												<div
+													className="badge"
+													style={{
+														backgroundColor: hexObject[el.productBadge],
+													}}
+												>
+													{el.productBadge}
 												</div>
-												<img
-													className="product-image"
-													src={el.image}
-													alt="protein"
-												/>
-												<h1>{el.title}</h1>
-												<h2>{el.price}p</h2>
+
+												<Link to="/shop">
+													<img
+														src="/images/supermarket1.png"
+														alt="supermarket"
+													/>
+												</Link>
 											</div>
-										)
-									);
-								})
-							);
-						})}
-					</HorizontalScroll>
+											<img
+												className="product-image"
+												src={el.image}
+												alt="protein"
+											/>
+											<h1>{el.title}</h1>
+											<h2>{el.price}p</h2>
+										</div>
+									)
+								);
+							})
+						);
+					})}
+					{/* </HorizontalScroll> */}
 				</div>
 			</div>
 
@@ -105,50 +105,50 @@ function NewMainPage() {
 			<div className="big-gray-block">
 				<h1 className="max-width">Рекомендуем:</h1>
 				<div className="white-boxes">
-					<HorizontalScroll reverseScroll={false} style={{
+					{/* <HorizontalScroll reverseScroll={false} style={{
 						width: '1400px',
 						margin: '0 auto'
-					}}>
-						{categories.map((element) => {
-							return (
-								products[element].length > 0 &&
-								products[element].map((el, index) => {
-									counter += 1;
-									return (
-										counter > 5 &&
-										counter < 11 && (
-											<div key={index} className="white-product-box">
-												<div className="top-side">
-													<div
-														className="badge"
-														style={{
-															backgroundColor: hexObject[el.productBadge],
-														}}
-													>
-														{el.productBadge}
-													</div>
-
-													<Link to="/shop">
-														<img
-															src="/images/supermarket1.png"
-															alt="supermarket"
-														/>
-													</Link>
+					}}> */}
+					{categories.map((element) => {
+						return (
+							products[element].length > 0 &&
+							products[element].map((el, index) => {
+								counter += 1;
+								return (
+									counter > 5 &&
+									counter < 11 && (
+										<div key={index} className="white-product-box">
+											<div className="top-side">
+												<div
+													className="badge"
+													style={{
+														backgroundColor: hexObject[el.productBadge],
+													}}
+												>
+													{el.productBadge}
 												</div>
-												<img
-													className="product-image"
-													src={el.image}
-													alt="protein"
-												/>
-												<h1>{el.title}</h1>
-												<h2>{el.price}p</h2>
+
+												<Link to="/shop">
+													<img
+														src="/images/supermarket1.png"
+														alt="supermarket"
+													/>
+												</Link>
 											</div>
-										)
-									);
-								})
-							);
-						})}
-					</HorizontalScroll>
+											<img
+												className="product-image"
+												src={el.image}
+												alt="protein"
+											/>
+											<h1>{el.title}</h1>
+											<h2>{el.price}p</h2>
+										</div>
+									)
+								);
+							})
+						);
+					})}
+					{/* </HorizontalScroll> */}
 				</div>
 			</div>
 
