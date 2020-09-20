@@ -14,7 +14,7 @@ class ShopPage extends Component {
       productsCounter: 0,
       isAdmin: false,
       active: "",
-      choosedCategory: "",
+      choosedCategory: "Все результаты",
     };
   }
 
@@ -126,6 +126,7 @@ class ShopPage extends Component {
                           this.changeFilter(element);
                           this.setState({
                             active: index,
+                            choosedCategory: element[0].toUpperCase() + element.substring(1),
                           });
                         }}
                         className={
@@ -142,7 +143,8 @@ class ShopPage extends Component {
                 className={"" + (this.state.active === "all" ? "active" : "")}
                 onClick={() => {
                   this.setState({
-                    active: "all",
+					active: "all",
+					choosedCategory: "Показать все"
                   });
                   this.changeFilter("all");
                 }}
@@ -151,7 +153,7 @@ class ShopPage extends Component {
               </h2>
             </div>
             <div className="all-products">
-              <h1>Все результаты</h1>
+              <h1>{this.state.choosedCategory}</h1>
               <p>{this.state.productsCounter} результата (ов)</p>
               <div className="product-blocks">
                 {this.state.productsFilter !== "all" &&
