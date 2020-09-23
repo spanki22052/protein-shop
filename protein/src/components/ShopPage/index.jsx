@@ -111,7 +111,7 @@ class ShopPage extends Component {
     const hexObject = {
       "В НАЛИЧИИ": "none",
       "СКИДКА 10%": "#EC2929",
-      ПРЕДЗАКАЗ: "#265ECB",
+      "ПРЕДЗАКАЗ": "#265ECB",
       "НЕТ В НАЛИЧИИ": "#BCBCBC",
     };
 

@@ -23,7 +23,7 @@ const ProductPage = ({
   });
 
   const hexObject = {
-    "В НАЛИЧИИ": "white",
+    "В НАЛИЧИИ": "none",
     "СКИДКА 10%": "#EC2929",
     ПРЕДЗАКАЗ: "#265ECB",
     "НЕТ В НАЛИЧИИ": "#BCBCBC",
@@ -63,6 +63,7 @@ const ProductPage = ({
             className="badge"
             style={{
               backgroundColor: hexObject[currentProduct.productBadge],
+              display: hexObject[currentProduct.productBadge],
             }}
           >
             {currentProduct.productBadge}

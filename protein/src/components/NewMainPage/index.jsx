@@ -12,7 +12,7 @@ function NewMainPage() {
   var counter = 0;
 
   const hexObject = {
-    "В НАЛИЧИИ": "white",
+    "В НАЛИЧИИ": "none",
     "СКИДКА 10%": "#EC2929",
     ПРЕДЗАКАЗ: "#265ECB",
     "НЕТ В НАЛИЧИИ": "#BCBCBC",
@@ -71,6 +71,7 @@ function NewMainPage() {
                           className="badge"
                           style={{
                             backgroundColor: hexObject[el.productBadge],
+                            display: hexObject[el.productBadge],
                           }}
                         >
                           {el.productBadge}
@@ -125,6 +126,7 @@ function NewMainPage() {
                           className="badge"
                           style={{
                             backgroundColor: hexObject[el.productBadge],
+                            display: hexObject[el.productBadge],
                           }}
                         >
                           {el.productBadge}
