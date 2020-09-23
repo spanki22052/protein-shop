@@ -18,7 +18,6 @@ class ShopPage extends Component {
       choosedCategory: "Все результаты",
     };
   }
-
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(async (_usr) => {
       if (_usr) this.setState({ isAdmin: true });
@@ -109,6 +108,13 @@ class ShopPage extends Component {
   activeCorrectFilter = (event) => {};
 
   render() {
+    const hexObject = {
+      "В НАЛИЧИИ": "none",
+      "СКИДКА 10%": "#EC2929",
+      ПРЕДЗАКАЗ: "#265ECB",
+      "НЕТ В НАЛИЧИИ": "#BCBCBC",
+    };
+
     return (
       <div className="shop-page">
         <div className="shop-page__padding">
@@ -148,7 +154,7 @@ class ShopPage extends Component {
                 onClick={() => {
                   this.setState({
                     active: "all",
-                    choosedCategory: "Показать все	",
+                    choosedCategory: "Все результаты",
                   });
                   this.changeFilter("all");
                 }}
@@ -186,6 +192,22 @@ class ShopPage extends Component {
                           >
                             Добавить в корзину
                           </button>
+                          <div
+                            className="badge"
+                            style={{
+                              color: "white",
+                              padding: "5px",
+                              position: "absolute",
+                              top: "10px",
+                              left: "10px",
+                              borderRadius: "20px",
+                              width: "110px",
+                              height: "25px",
+                              backgroundColor: hexObject[el.productBadge],
+                            }}
+                          >
+                            {el.productBadge}
+                          </div>
 
                           <Link to={`/product/${el.productEngl}`}>
                             <h1>{el.title}</h1>
@@ -204,6 +226,23 @@ class ShopPage extends Component {
                       this.state.products[element].map((el, index) => {
                         return (
                           <div key={index} className="product-block">
+                            <div
+                              className="badge"
+                              style={{
+                                color: "white",
+                                padding: "5px",
+                                position: "absolute",
+                                top: "10px",
+                                left: "10px",
+                                borderRadius: "20px",
+                                width: "110px",
+                                height: "25px",
+                                backgroundColor: hexObject[el.productBadge],
+                                display: hexObject[el.productBadge],
+                              }}
+                            >
+                              {el.productBadge}
+                            </div>
                             {this.state.isAdmin === true && (
                               <button
                                 onClick={() =>
