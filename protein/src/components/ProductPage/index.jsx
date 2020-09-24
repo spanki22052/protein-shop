@@ -78,8 +78,7 @@ const ProductPage = ({
         <div className="product-info">
           <div className="product-title">{currentProduct.title}</div>
           <div className="product-suptitle">
-            {currentProduct.productDescription}Сывороточный протеин № 1 в
-            Великобритании — отличное дополнение к вашему ежедневному рациону
+            {currentProduct.productDescription}
           </div>
           <div className="product-price">
             {currentProduct.productBadge === "СКИДКА 10%" && (
