@@ -57,81 +57,84 @@ const ProductPage = ({
 				<h1>{currentProduct.title}</h1>
 				<h2>{currentProduct.productDescription}</h2>
 			</div> */}
-			<div className="product-page">
-				<div className="image-holder">
-					<div
-						className="badge"
-						style={{
-							backgroundColor: hexObject[currentProduct.productBadge],
-							display: hexObject[currentProduct.productBadge],
-						}}
-					>
-						{currentProduct.productBadge}
+			<div className='productPageWrapper'>
+				<div className="product-page">
+					<div className="image-holder">
+						<div
+							className="badge"
+							style={{
+								backgroundColor: hexObject[currentProduct.productBadge],
+								display: hexObject[currentProduct.productBadge],
+							}}
+						>
+							{currentProduct.productBadge}
+						</div>
+						<img
+							src={currentProduct.image}
+							className="product-photo"
+							alt="productImage"
+						></img>
 					</div>
-					<img
-						src={currentProduct.image}
-						className="product-photo"
-						alt="productImage"
-					></img>
-				</div>
 
-				<div className="product-info">
-					<div className="product-title">{currentProduct.title}</div>
-					<div className="product-suptitle">
-						{currentProduct.productDescription}
-					</div>
-					<div className="product-price">
-						{currentProduct.productBadge === "СКИДКА 10%" && (
-							<span>
-								{parseInt(currentProduct.price) +
-									parseInt(currentProduct.price) * 0.1}
-							</span>
-						)}
-						{currentProduct.price}
+					<div className="product-info">
+						<div className="product-title">{currentProduct.title}</div>
+						<div className="product-suptitle">
+							{currentProduct.productDescription}
+						</div>
+						<div className="product-price">
+							{currentProduct.productBadge === "СКИДКА 10%" && (
+								<span>
+									{parseInt(currentProduct.price) +
+										parseInt(currentProduct.price) * 0.1}
+								</span>
+							)}
+							{currentProduct.price}
             руб
           </div>
-					<div className="product-quantity">
-						<button
-							className="remove-product"
-							onClick={() => {
-								parseInt(amountInput) > 1 &&
-									setAmount(parseInt(amountInput) - 1);
-							}}
-						>
-							-
+						<div className="product-quantity">
+							<button
+								className="remove-product"
+								onClick={() => {
+									parseInt(amountInput) > 1 &&
+										setAmount(parseInt(amountInput) - 1);
+								}}
+							>
+								-
             </button>
-						<input
-							className="product-number"
-							value={amountInput}
-							onChange={(e) => setAmount(e.target.value)}
-						/>
-						<button
-							className="add-product"
-							onClick={() => {
-								setAmount(parseInt(amountInput) + 1);
-							}}
-						>
-							+
+							<input
+								className="product-number"
+								value={amountInput}
+								onChange={(e) => setAmount(e.target.value)}
+							/>
+							<button
+								className="add-product"
+								onClick={() => {
+									setAmount(parseInt(amountInput) + 1);
+								}}
+							>
+								+
             </button>
-					</div>
-					<div
-						className="product-add"
-						onClick={() =>
-							addNewProduct(
-								currentProduct.title,
-								currentProduct.price,
-								currentProduct.image
-							)
-						}
-					>
-						Добавить в корзину
+						</div>
+						<div
+							className="product-add"
+							onClick={() =>
+								addNewProduct(
+									currentProduct.title,
+									currentProduct.price,
+									currentProduct.image
+								)
+							}
+						>
+							Добавить в корзину
           </div>
+					</div>
 				</div>
+				<br />
+				<br />
+				<br />
+				<Footer />
+
 			</div>
-			<br />
-			<br />
-			<br />
-			<Footer />
 		</>
 	);
 };
