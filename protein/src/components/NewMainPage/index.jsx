@@ -48,7 +48,7 @@ function NewMainPage() {
 
       <div className="yellow-down-block">
         <h1>Для постоянных посетителей существует система скидок ( до 15% )</h1>
-        <button>Купить сейчас</button>
+        <button><Link to="/shop" style={{ textDecoration: "none", color: "black"}}>Купить сейчас</Link> </button>
       </div>
 
       <div className="big-gray-block">
