@@ -1,4 +1,7 @@
 .navBar {
+	position: fixed;
+	width: 100%;
+	z-index: 10;
 	background-color: #299d00;
 	.navBarWrapper {
 		padding: 0 20px;
@@ -128,6 +131,7 @@
 			}
 		}
 		@media (max-width: 480px) {
+			height: 80px;
 			.navBarLogo {
 				font-size: 35px;
 				line-height: 35px;
