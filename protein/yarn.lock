@@ -9590,6 +9590,11 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
+react-hamburger-menu@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-hamburger-menu/-/react-hamburger-menu-1.2.1.tgz#bcaca08bf7d1ae96aa97553828765dce8f912eeb"
+  integrity sha512-It5Jque8bx9lYn8q/NFtu9Ci20fBMsyunFSp06ZGgWXbMZlTFrN0IxKguGZ0igYQr6RvJ3S9CN3rTjrObmq/Cw==
+
 react-horizontal-scrolling-menu@^0.7.8:
   version "0.7.8"
   resolved "https://registry.yarnpkg.com/react-horizontal-scrolling-menu/-/react-horizontal-scrolling-menu-0.7.8.tgz#9b209cb7620209fc1ae5e3fae25a0fe4d83b014e"
