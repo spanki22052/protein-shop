@@ -1,63 +1,152 @@
-.navbar-component {
-	.navbar {
-		background-color: #299d00;
-		height: auto;
-		padding-top: 20px;
-		padding-bottom: 20px;
-
-		.link {
-			color: white !important;
-			text-decoration: none;
-
-			&:hover {
-				color: white !important;
-			}
-		}
-
-		.navbar-brand {
-			margin-left: 35px;
-			font-size: 2.5em;
-			font-family: "Montserrat", sans-serif;
-			font-weight: 700;
-			border-top: 2px solid #FBFF31	;
-			border-bottom: 2px solid #FBFF31;
+.navBar {
+	background-color: #299d00;
+	.navBarWrapper {
+		padding: 0 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 110px;
+		max-width: 1500px;
+		margin: 0 auto;
+		.navBarLogo {
+			font-family: "Montserrat";
+			font-style: normal;
+			font-weight: 900;
+			font-size: 45px;
+			line-height: 44px;
 			color: white;
-			height: 50px;
-			line-height: 35px;
-
-			@media (max-width: 500px) {
-				font-size: 2em;
+			border: 1.5px solid #fbff31;
+			border-right: none;
+			border-left: none;
+			z-index: 3;
+			a {
+				text-decoration: none;
+				.bio {
+					color: #35c602;
+				}
+				.mart {
+					color: #fbff31;
+				}
 			}
 		}
-
-		@media (max-width: 900px) {
-			.collapse {
-				.navbar-nav {
-					.nav-item {
-						margin-left: 0 !important;
+		.navBarMenu {
+			margin: 0;
+			display: flex;
+			align-items: center;
+			list-style-type: none;
+			font-family: "Montserrat";
+			font-style: normal;
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 29px;
+			color: #ffffff;
+			.navBarMenuItem {
+				margin-right: 40px;
+				&:last-child {
+					margin-right: 0;
+				}
+				span {
+					color: white;
+				}
+				.dropdown-content {
+					display: none;
+					position: absolute;
+					background-color: #f9f9f9;
+					min-width: 100%;
+					box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+					z-index: 1;
+					list-style-type: none;
+					color: black;
+					text-align: center;
+					padding: 10px 0;
+					font-family: "Montserrat";
+					font-style: normal;
+					font-weight: normal;
+					font-size: 20px;
+					line-height: 20px;
+					text-align: center;
+					li {
+						cursor: pointer;
+						margin-bottom: 10px;
+						&:last-child {
+							margin-bottom: 0px;
+						}
+					}
+				}
+				img {
+					margin-left: 8px;
+					height: 100%;
+					transition: all 0.2s linear;
+				}
+				&:hover {
+					.dropdown-content {
+						display: block;
+					}
+					img {
+						transform: rotate(180deg);
 					}
 				}
 			}
-
-			.icon-button {
-				margin-top: 10px;
-				margin-left: 30px;
+			a {
+				text-decoration: none;
+				color: #ffffff;
 			}
-		}
-
-		.collapse {
-			.navbar-nav {
-				.nav-item {
-					margin-left: 50px;
-
-					.nav-link {
-						color: white;
-						font-size: 1.3em;
-						font-family: "Montserrat", sans-serif;
-						margin-left: 25px;
+			@media (max-width: 900px) {
+				flex-direction: column;
+				align-items: center;
+				padding-top: 150px;
+				padding-left: 10px;
+				position: fixed;
+				top: -100%;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #299d00;
+				z-index: 2;
+				transition: all 0.3s ease;
+				.navBarMenuItem {
+					margin: 0px;
+					margin-top: 30px;
+					position: relative;
+					font-size: 30px;
+					img {
+						position: absolute;
+						top: 11px;
+						margin-left: 8px;
+						height: 10px;
+						transition: all 0.2s linear;
+					}
+					&:last-child {
+						margin-top: 0;
 					}
 				}
+			}
+			@media (max-width: 480px) {
+				.navBarMenuItem {
+					font-size: 25px;
+				}
+			}
+		}
+		@media (max-width: 480px) {
+			.navBarLogo {
+				font-size: 35px;
+				line-height: 35px;
+			}
+		}
+		.navBurger {
+			display: none;
+			@media (max-width: 900px) {
+				display: block;
+				z-index: 3;
 			}
 		}
 	}
+}
+
+.active {
+	top: 0 !important;
+}
+
+.lock {
+	overflow: hidden;
 }
