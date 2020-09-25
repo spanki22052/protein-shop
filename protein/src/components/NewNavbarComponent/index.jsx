@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { IconButton, withStyles, Badge } from "@material-ui/core";
 import { connect } from "react-redux";
-import ProductPopup from "./ProductPopup";
 import HamburgerMenu from 'react-hamburger-menu';
 
 const firebase = require("firebase");
@@ -16,12 +15,6 @@ const NavbarComponent = ({
 	sendProductsObject,
 	allItems,
 }) => {
-	const [searchInput, setSearch] = useState("");
-	const [searchList, setSearcList] = useState(
-		allItems.products.filter((element) =>
-			element.title.toLowerCase().includes(searchInput)
-		)
-	);
 
 	const StyledBadge = withStyles((theme) => ({
 		badge: {
@@ -54,10 +47,8 @@ const NavbarComponent = ({
 			});
 	}, [sendProductsObject, sendCategoriesObject]);
 
-	const [displaySet, setDisplay] = useState("none");
 
 	const [menuState, openMenu] = useState(false);
-	// const [dropdownState, openDropdown] = useState(false)
 
 	return (
 		<nav className='navBar'>
@@ -84,12 +75,12 @@ const NavbarComponent = ({
 					</li>
 					<li className='navBarMenuItem dropdown'>
 						<span>Бренды</span>
-						<ul class="dropdown-content">
+						<ul className="dropdown-content">
 							<li>One</li>
 							<li>Two</li>
 							<li>Три</li>
 						</ul>
-						<img src='/svg/Vector.svg'></img>
+						<img src='/svg/Vector.svg' alt="ad" />
 					</li>
 					<li className='navBarMenuItem'>
 						<Link onClick={

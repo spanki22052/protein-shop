@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./shop.scss";
 import { connect } from "react-redux";
-import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const firebase = require("firebase");
 
