@@ -17,6 +17,10 @@
 		align-items: center;
 		justify-content: center;
 
+		@media (max-width: 480px) {
+			margin-top: 80px;
+		}
+
 		h1 {
 			text-align: center;
 
