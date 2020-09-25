@@ -94,14 +94,15 @@ const NavbarComponent = ({
               </span>
               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <Link className="dropdown-item" to="/shop">
-                  Протеины
+					о нас
+						
                 </Link>
               </div>
             </li>
             <li className="nav-item dropdown">
               <span
                 className="nav-link dropdown-toggle"
-                id="navbarDropdown"
+                id="navbarDropdown"	
                 role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
