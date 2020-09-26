@@ -58,7 +58,7 @@ const AboutUsPage = () => {
 					<img className="aboutUsPhoto" src="/svg/client2.jpg" alt="photo"></img>
 					<img className="aboutUsPhoto" src="/svg/client3.jpg" alt="photo"></img>
 				</div>
-				<a className='instLink' href='https://www.instagram.com/'>
+				<a className='instLink' href='https://www.instagram.com/biomart.ru/'>
 					<div className='instagramButton'>
 						Instagram
 				<img src='/svg/inst.svg'></img>
