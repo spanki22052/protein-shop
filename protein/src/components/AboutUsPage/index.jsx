@@ -17,13 +17,13 @@ const AboutUsPage = () => {
 					<img className='cardPhoto' src='/svg/street.png'></img>
 					<div className='cardAdress'>г. Махачкала</div>
 					<div className='cardAdressSup'>ул. Титова, 1</div>
-					<img className='cardSvg' src='/svg/maps.svg'></img>
+					<img className='cardSvg' src='/svg/Vectormaps-1.svg'></img>
 				</div>
 				<div className='aboutUsCard'>
 					<img className='cardPhoto' src='/svg/street.png'></img>
 					<div className='cardAdress'>г. Махачкала</div>
 					<div className='cardAdressSup'>ул. Титова, 1</div>
-					<img className='cardSvg' src='/svg/maps.svg'></img>
+					<img className='cardSvg' src='/svg/Vectormaps-1.svg'></img>
 				</div>
 			</div>
 			<div className='aboutUsSupTitle'>
