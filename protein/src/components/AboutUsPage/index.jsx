@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./aboutUsPage.scss";
 import Footer from '../Footer';
 
@@ -15,7 +14,7 @@ const AboutUsPage = () => {
 				<div className="LocationCards">
 					<div className="greenCard">
 						<div className="aboutUsCard">
-							<img className="cardPhoto" src="/svg/street.png" alt="photo"></img>
+							<img className="cardPhoto" src="/svg/street.png" alt="streetPhoto"></img>
 							<div className="cardAdress">г. Махачкала</div>
 							<div className="cardAdressSup">ул. Титова, 1</div>
 							<div className="cardSvg">
@@ -34,7 +33,7 @@ const AboutUsPage = () => {
 					</div>
 					<div className="greenCard">
 						<div className="aboutUsCard">
-							<img className="cardPhoto" src="/svg/street.png" alt="photo"></img>
+							<img className="cardPhoto" src="/svg/street.png" alt="streetPhoto"></img>
 							<div className="cardAdress">г. Махачкала</div>
 							<div className="cardAdressSup">ул. Титова, 1</div>
 							<div className="cardSvg">
@@ -54,31 +53,27 @@ const AboutUsPage = () => {
 				</div>
 				<div className="aboutUsSupTitle">Наши клиенты</div>
 				<div className="photoWrapper">
-					<img className="aboutUsPhoto" src="/svg/client1.jpg" alt="photo"></img>
-					<img className="aboutUsPhoto" src="/svg/client2.jpg" alt="photo"></img>
-					<img className="aboutUsPhoto" src="/svg/client3.jpg" alt="photo"></img>
+					<img className="aboutUsPhoto" src="/svg/client1.jpg" alt="ClientPhoto"></img>
+					<img className="aboutUsPhoto" src="/svg/client2.jpg" alt="ClientPhoto"></img>
+					<img className="aboutUsPhoto" src="/svg/client3.jpg" alt="ClientPhoto"></img>
 				</div>
 				<a className='instLink' href='https://www.instagram.com/biomart.ru/'>
 					<div className='instagramButton'>
 						Instagram
-				<img src='/svg/inst.svg'></img>
+				<img src='/svg/inst.svg' alt='instIcon'></img>
 					</div>
 				</a>
 				<div className="aboutUsSupTitle">Наши сотрудники</div>
 				<div className="manWrapper">
 					<div className="abousUsMan">
-						<img
-							className="manPhoto"
-							src="/svg/client4.jpg"
-							alt="photo"
-						></img>
+						<img className="manPhoto" src="/svg/client4.jpg" alt="employeePhoto"></img>
 						<div className="ManName">Султан</div>
 						<div className="ManTitle">
 							Один из лучших фитнес тренеров в Дагестане
           </div>
 					</div>
 					<div className="abousUsMan">
-						<img className="manPhoto" src="/svg/client5.jpg"></img>
+						<img className="manPhoto" src="/svg/client5.jpg" alt="employeePhoto"></img>
 						<div className="ManName">Султан</div>
 						<div className="ManTitle">
 							Один из лучших фитнес тренеров в Дагестане
